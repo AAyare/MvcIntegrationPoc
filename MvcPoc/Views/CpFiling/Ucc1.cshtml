@@ -6,7 +6,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@*<script type="text/javascript">
 
+    $.validator.unobtrusive.adapters.addSingleVal("requiredifstatecodeis", ["statecode", "specialstatecode"]);
+    $.validator.unobtrusive.adapters.addSingleVal("notequalto", "other");
+            
+    $.validator.addMethod("notequalto", function (value, element, other) {
+        return isNotEqualToValid(value, element, other);
+    }, "Required");
+    
+    function isNotEqualToValid(value, element, other) {
+        if (value != $(other).val())
+            return true;
+        else {
+            return false;
+        }
+    }
+
+    $.validator.addMethod("requiredifstatecodeis", function (value, element, params) {
+        return isValid(value, element, params);
+    }, "Required");
+    
+    function isValid(value, element, param) {
+        if (param.specialstatecode.contains($(param.statecode).val()) && value.length < 1)
+            return false;
+        else {
+            return true;
+        }
+    }
+
+</script>*@
 
 <h2>Ucc1</h2>
 
@@ -21,6 +50,95 @@
 
         @Html.Action("RenderDebtor", new {state = Model.StateCode})
 
+@*<style type="text/css">
+    
+    .debtors-section {
+        border: 2px solid #030303;
+        padding-left: 20px;
+    }
+
+    .debtor-section {
+        border: 2px solid grey;
+        margin: 20px 20px 20px 0px;
+    }
+
+    .debtor-form {
+        margin: 10px;
+    }
+
+    .section-header h6 {
+        background-color: grey;
+        color: black;
+        margin: 0;
+        padding: 5px;
+    }
+</style>
+<div class="debtors-section">
+    <div class="debtor-section" id="debtor-1">
+        <div class="section-header">
+            <h6>Debtor's full legal name</h6>
+            <fieldset>
+                <legend>Debtor's full legal name</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.StateCode)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.StateCode, new {@readonly = "readonly"})
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Ucc1Debtor.Suffix)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Ucc1Debtor.Suffix)
+                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.Suffix)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Ucc1Debtor.Title)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Ucc1Debtor.Title)
+                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.Title)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Ucc1Debtor.FirstName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Ucc1Debtor.FirstName)
+                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.FirstName)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Ucc1Debtor.MiddleName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Ucc1Debtor.MiddleName)
+                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.MiddleName)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Ucc1Debtor.LastName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Ucc1Debtor.LastName)
+                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.LastName)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Ucc1Debtor.SeeInstructions)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Ucc1Debtor.SeeInstructions)
+                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.SeeInstructions)
+                </div>
+
+            </fieldset>
+        </div>
+    </div>
+</div>*@
         <p>
             <input type="submit" value="Create Filing" />
         </p>

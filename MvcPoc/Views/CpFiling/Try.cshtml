@@ -5,6 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript">
+    $.validator.unobtrusive.adapters.addSingleVal("notequalto", "other");
+
+    $.validator.addMethod("notequalto", function (value, element, other) {
+        return false;
+    }, "Invalid data."
+    );
+    
+    function isfieldvalid(value, otherValue) {
+        if (value != otherValue)
+            return true;
+
+        return false;
+    }
+</script>
+
 <h2>Try</h2>
 
 @using (Html.BeginForm()) {

@@ -48,7 +48,7 @@ namespace MvcPoc.Web.Models.Debtor
         }
 
         [DataType(DataType.MultilineText)]
-        [RequiredIfStateCodeIs("StateCode", "SD,NY")]
+        [RequiredIfStateCodeIs("StateCode", "SD,NY", ErrorMessage = "See instructions is required for this jurisdiction.")]
         [Display(Name = "See Instructions")]
         public string SeeInstructions
         {
