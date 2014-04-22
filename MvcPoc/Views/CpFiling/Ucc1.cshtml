@@ -1,32 +1,12 @@
 ﻿@model MvcPoc.Web.Models.Ucc1Model
 
+
 @{
     ViewBag.Title = "Ucc1";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style type="text/css">
-    
-    .debtors-section {
-        border: 2px solid #030303;
-        padding-left: 20px;
-    }
 
-    .debtor-section {
-        border: 2px solid grey;
-        margin: 20px 20px 20px 0px;
-    }
 
-    .debtor-form {
-        margin: 10px;
-    }
-
-    .section-header h6 {
-        background-color: grey;
-        color: black;
-        margin: 0;
-        padding: 5px;
-    }
-</style>
 
 <h2>Ucc1</h2>
 
@@ -37,43 +17,21 @@
     <fieldset>
         <legend>Create a UCC 1 Filing</legend>
         
-        <div class="debtors-section">
-            <div class="debtor-section" id="debtor-1">
-                <div class="section-header">
-                    <h6>Debtor's full legal name</h6>
-                    <div class="debtor-form">
-                        <ol>
-                            <li>
-                                @Html.LabelFor(m => m.Ucc1Debtor.Suffix)
-                                @Html.TextBoxFor(m => m.Ucc1Debtor.Suffix)
-                            </li>
-                            <li>
-                                @Html.LabelFor(m => m.Ucc1Debtor.FirstName)
-                                @Html.PasswordFor(m => m.Ucc1Debtor.FirstName)
-                            </li>
-                            <li>
-                                @Html.LabelFor(m => m.Ucc1Debtor.MiddleName)
-                                @Html.PasswordFor(m => m.Ucc1Debtor.MiddleName)
-                            </li>
-                            <li>
-                                @Html.LabelFor(m => m.Ucc1Debtor.LastName)
-                                @Html.PasswordFor(m => m.Ucc1Debtor.LastName)
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            <p>
-                <input type="submit" value="Create Filing" />
-            </p>
-        </div>
+        <div class="editor-label">@Html.DisplayFor(m => m.StateCode)</div>
+
+        @Html.Action("RenderDebtor", new {state = Model.StateCode})
+
+        <p>
+            <input type="submit" value="Create Filing" />
+        </p>
     </fieldset>
 }
 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+

@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using MvcPoc.Web.Models;
+using MvcPoc.Web.Models.Debtor;
 
 namespace MvcPoc.Web.Controllers
 {
@@ -11,10 +10,46 @@ namespace MvcPoc.Web.Controllers
         //
         // GET: /CpFiling/
 
-        public ActionResult Ucc1()
+        public ActionResult Index(Ucc1Model ucc1)
         {
-            return View();
+            return View(ucc1);
         }
 
+        public ActionResult Ucc1(string stateCode)
+        {
+            var model = new Ucc1Model(stateCode);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Ucc1(Ucc1Model model)
+        {
+            if (TryUpdateModel(model))
+            {
+                RedirectToAction("Index", model);
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Try()
+        {
+            var model = new CustomValidationModel();
+            return View(model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult RenderDebtor(string stateCode)
+        {
+            var debtor = new Ucc1DebtorModel(stateCode);
+            return PartialView("DebtorSection/_EditDebtorSection", debtor);
+        }
+
+        [ChildActionOnly]
+        public ActionResult RenderDebtorDisplay(string stateCode)
+        {
+            var debtor = new Ucc1DebtorModel(stateCode);
+            return PartialView("DebtorSection/_ViewDebtorSection", debtor);
+        }
     }
 }

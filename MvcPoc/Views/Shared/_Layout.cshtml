@@ -21,7 +21,7 @@
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("CPF Page 2", "Ucc1", "CpFiling")</li>
+                            <li>@Html.ActionLink("CPF Page 2", "Ucc1", "CpFiling", new { @stateCode = "SD" }, null)</li>
                         </ul>
                     </nav>
                 </div>
@@ -43,5 +43,6 @@
 
         @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)
+
     </body>
 </html>

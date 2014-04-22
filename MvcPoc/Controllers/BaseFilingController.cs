@@ -11,10 +11,5 @@ namespace MvcPoc.Web.Controllers
         //
         // GET: /BaseFiling/
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
     }
 }

@@ -1,0 +1,22 @@
+﻿@model MvcPoc.Web.Models.Ucc1Model
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<fieldset>
+    <legend>Ucc1Model</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StateCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StateCode)
+    </div>
+    
+    @Html.Action("RenderDebtorDisplay", Model.StateCode)
+</fieldset>
+<
