@@ -31,7 +31,7 @@ namespace MvcPoc.Web.Models.Debtor
             set { _firstName = value; }
         }
 
-        [NotEqualTo("Suffix", ErrorMessage = "Middle Name cannot be equal to Suffix.")]
+        //[NotEqualTo("Suffix", ErrorMessage = "Middle Name cannot be equal to Suffix.")]
         [Display(Name = "Middle Name")]
         public string MiddleName
         {
@@ -39,7 +39,7 @@ namespace MvcPoc.Web.Models.Debtor
             set { _middleName = value; }
         }
 
-        [NotEqualTo("FirstName", ErrorMessage = "Last Name cannot be equal to First Name.")]
+        //[NotEqualTo("FirstName", ErrorMessage = "Last Name cannot be equal to First Name.")]
         [Display(Name = "Last Name")]
         public string LastName
         {

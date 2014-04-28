@@ -1,4 +1,5 @@
 ﻿using MvcPoc.Web.Models.Debtor;
+using System.Collections.Generic;
 
 namespace MvcPoc.Web.Models
 {
@@ -11,6 +12,6 @@ namespace MvcPoc.Web.Models
 
         public string StateCode { get; private set; }
 
-        public Ucc1DebtorModel Ucc1Debtor { get; set; }
+        public List<Ucc1DebtorModel> Ucc1Debtors { get; set; }
     }
 }

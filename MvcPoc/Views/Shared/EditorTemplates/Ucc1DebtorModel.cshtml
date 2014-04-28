@@ -1,20 +1,14 @@
-﻿@model MvcPoc.Web.Models.Ucc1Model
+﻿@model MvcPoc.Web.Models.Debtor.Ucc1DebtorModel
 
-
-@{
-    ViewBag.Title = "Ucc1";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@*<script type="text/javascript">
+<script type="text/javascript">
 
     $.validator.unobtrusive.adapters.addSingleVal("requiredifstatecodeis", ["statecode", "specialstatecode"]);
     $.validator.unobtrusive.adapters.addSingleVal("notequalto", "other");
-            
+
     $.validator.addMethod("notequalto", function (value, element, other) {
-        return isNotEqualToValid(value, element, other);
+        return value != $(other).val();
     }, "Required");
-    
+
     function isNotEqualToValid(value, element, other) {
         if (value != $(other).val())
             return true;
@@ -26,7 +20,7 @@
     $.validator.addMethod("requiredifstatecodeis", function (value, element, params) {
         return isValid(value, element, params);
     }, "Required");
-    
+
     function isValid(value, element, param) {
         if (param.specialstatecode.contains($(param.statecode).val()) && value.length < 1)
             return false;
@@ -35,25 +29,8 @@
         }
     }
 
-</script>*@
-
-<h2>Ucc1</h2>
-
-<form method="post">
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Create a UCC 1 Filing</legend>
-        
-        <div class="editor-label">@Html.DisplayFor(m => m.StateCode)</div>
-        @Html.HiddenFor(m => m.StateCode)
-
-       <div class="editor-field">@Html.EditorFor(modelitem => Model.Ucc1Debtors)</div>
-        
-        <input type="submit" value="Add Debtor" name="action" class="cancel" />
-
-@*<style type="text/css">
+</script>
+<style type="text/css">
     
     .debtors-section {
         border: 2px solid #030303;
@@ -91,68 +68,55 @@
                 </div>
 
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.Suffix)
+                    @Html.LabelFor(model => model.Suffix)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.Suffix)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.Suffix)
+                    @Html.EditorFor(model => model.Suffix)
+                    @Html.ValidationMessageFor(model => model.Suffix)
                 </div>
 
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.Title)
+                    @Html.LabelFor(model => model.Title)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.Title)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.Title)
+                    @Html.EditorFor(model => model.Title)
+                    @Html.ValidationMessageFor(model => model.Title)
                 </div>
 
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.FirstName)
+                    @Html.LabelFor(model => model.FirstName)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.FirstName)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.FirstName)
+                    @Html.EditorFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName)
                 </div>
 
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.MiddleName)
+                    @Html.LabelFor(model => model.MiddleName)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.MiddleName)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.MiddleName)
+                    @Html.EditorFor(model => model.MiddleName)
+                    @Html.ValidationMessageFor(model => model.MiddleName)
                 </div>
 
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.LastName)
+                    @Html.LabelFor(model => model.LastName)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.LastName)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.LastName)
+                    @Html.EditorFor(model => model.LastName)
+                    @Html.ValidationMessageFor(model => model.LastName)
                 </div>
 
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.SeeInstructions)
+                    @Html.LabelFor(model => model.SeeInstructions)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.SeeInstructions)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.SeeInstructions)
+                    @Html.EditorFor(model => model.SeeInstructions)
+                    @Html.ValidationMessageFor(model => model.SeeInstructions)
                 </div>
-
             </fieldset>
         </div>
     </div>
-</div>*@
-        <p>
-            <input type="submit" value="Create Filing" />
-        </p>
-    </fieldset>
-</form>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
-
+<br/>
 
