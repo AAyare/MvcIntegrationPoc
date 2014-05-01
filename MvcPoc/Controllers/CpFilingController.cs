@@ -19,14 +19,8 @@ namespace MvcPoc.Web.Controllers
 
         public ActionResult Ucc1(Page1Model model)
         {
-<<<<<<< HEAD
             var ucc1Model = new Ucc1Model(model.JurisdictionStateCode);
             return View(ucc1Model);
-=======
-            var model = new Ucc1Model(stateCode);
-            model.Ucc1Debtors = new List<Ucc1DebtorModel>(){new Ucc1DebtorModel(stateCode){}};
-            return View(model);
->>>>>>> be2f9bd12bfe1493b75166f619271ab9a211b421
         }
 
        [HttpPost]
