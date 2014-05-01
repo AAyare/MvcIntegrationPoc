@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using MvcPoc.Web.Models;
 using MvcPoc.Web.Models.Debtor;
+using MvcPoc.Web.Utils.CustomActionNames;
 
 namespace MvcPoc.Web.Controllers
 {
@@ -17,12 +19,19 @@ namespace MvcPoc.Web.Controllers
 
         public ActionResult Ucc1(Page1Model model)
         {
+<<<<<<< HEAD
             var ucc1Model = new Ucc1Model(model.JurisdictionStateCode);
             return View(ucc1Model);
+=======
+            var model = new Ucc1Model(stateCode);
+            model.Ucc1Debtors = new List<Ucc1DebtorModel>(){new Ucc1DebtorModel(stateCode){}};
+            return View(model);
+>>>>>>> be2f9bd12bfe1493b75166f619271ab9a211b421
         }
 
-        [HttpPost]
-        public ActionResult Ucc1(Ucc1Model model)
+       [HttpPost]
+       [MultiButton(MatchFormKey = "action", MatchFormValue = "Create Filing")] 
+        public ActionResult Ucc1(Ucc1Model model,string stateCode)
         {
             if (TryUpdateModel(model))
             {
@@ -30,6 +39,21 @@ namespace MvcPoc.Web.Controllers
             }
 
             return View(model);
+        }
+       
+        [MultiButton(MatchFormKey = "action", MatchFormValue = "Add Debtor")]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult AddDebtor(Ucc1Model viewModel)
+        {
+            try
+            {
+                viewModel.Ucc1Debtors.Add(new Ucc1DebtorModel(viewModel.Ucc1Debtors[0].StateCode){});
+                return View("Ucc1", viewModel);
+            }
+            catch
+            {
+                return View("Ucc1");
+            }
         }
 
         public ActionResult Try()
