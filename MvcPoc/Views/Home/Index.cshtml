@@ -3,36 +3,6 @@
 @{
     ViewBag.Title = "Filing Center";
 }
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
-            </hgroup>
-            <p>
-                Set the values on this page to go to the corresponding CP UCC Filing page.
-            </p>
-        </div>
-    </section>
-}
-<h3>We suggest the following:</h3>
-<ol class="round">
-    <li class="one">
-        <h5>Select UCC1 or UCC 3</h5>
-        Based on your selection, the page will post to the corresponding action on CP Filing Controller.
-    </li>
-
-    <li class="two">
-        <h5>Fill out the added services details</h5>
-        Fill out <b>'Bill to'</b> and <b>'File For'</b> values so that they can be handled appropriately on page 2.
-    </li>
-
-    <li class="three">
-        <h5>Billing References and other miscellaneous values</h5>
-        For further investigation on Billing references, debtor subject etc you can enhance the Page1Model object and change this form.
-    </li>
-</ol>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -40,7 +10,6 @@
 
     <fieldset>
         <legend>Create a UCC 1 Filing</legend>
-        
         <div class="editor-label">@Html.LabelFor(m => m.JurisdictionStateCode)</div>
 
         <div class="editor-field">
@@ -54,21 +23,21 @@
             @Html.EditorFor(m => m.BillTo)
             @Html.ValidationMessageFor(m => m.BillTo)
         </div>
-
+        
         <div class="editor-label">@Html.LabelFor(m => m.FileFor)</div>
 
         <div class="editor-field">
             @Html.EditorFor(m => m.FileFor)
             @Html.ValidationMessageFor(m => m.FileFor)
         </div>
-
+        
         <div class="editor-label">@Html.LabelFor(m => m.Rush)</div>
 
         <div class="editor-field">
             @Html.EditorFor(m => m.Rush)
             @Html.ValidationMessageFor(m => m.Rush)
         </div>
-
+        
         <div class="editor-label">@Html.LabelFor(m => m.UccType)</div>
 
         <div class="editor-field">

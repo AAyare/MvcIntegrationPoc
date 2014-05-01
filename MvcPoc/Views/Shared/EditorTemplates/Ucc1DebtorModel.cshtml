@@ -1,45 +1,11 @@
 ﻿@model MvcPoc.Web.Models.Debtor.Ucc1DebtorModel
 
-<script type="text/javascript">
 
-    $.validator.unobtrusive.adapters.addSingleVal("requiredifstatecodeis", ["statecode", "specialstatecode"]);
-    $.validator.unobtrusive.adapters.addSingleVal("notequalto", "other");
-
-    $.validator.addMethod("notequalto", function (value, element, other) {
-        return value != $(other).val();
-    }, "Required");
-
-    function isNotEqualToValid(value, element, other) {
-        if (value != $(other).val())
-            return true;
-        else {
-            return false;
-        }
-    }
-
-    $.validator.addMethod("requiredifstatecodeis", function (value, element, params) {
-        return isValid(value, element, params);
-    }, "Required");
-
-    function isValid(value, element, param) {
-        if (param.specialstatecode.contains($(param.statecode).val()) && value.length < 1)
-            return false;
-        else {
-            return true;
-        }
-    }
-
-</script>
 <style type="text/css">
     
-    .debtors-section {
-        border: 2px solid #030303;
-        padding-left: 20px;
-    }
-
     .debtor-section {
         border: 2px solid grey;
-        margin: 20px 20px 20px 0px;
+        margin: 10px 0 0 0;
     }
 
     .debtor-form {
@@ -56,9 +22,9 @@
 <div class="debtors-section">
     <div class="debtor-section" id="debtor-1">
         <div class="section-header">
-            <h6>Debtor's full legal name</h6>
+            <h6>Debtor's Exact Full Legal Name</h6>
             <fieldset>
-                <legend>Debtor's full legal name</legend>
+                <legend>Debtor's Exact Full Legal Name</legend>
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.StateCode)

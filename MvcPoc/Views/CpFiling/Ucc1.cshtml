@@ -6,8 +6,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Ucc1</h2>
-
 <form method="post">
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -15,113 +13,22 @@
     <fieldset>
         <legend>Create a UCC 1 Filing</legend>
         
-        <div class="editor-label">@Html.DisplayFor(m => m.StateCode)</div>
-        @Html.HiddenFor(m => m.StateCode)
+        <div class="create-filing-header">
+            <h2>Ucc1 Filing</h2>
 
-<<<<<<< HEAD
-        @Html.Action("RenderDebtor", new {stateCode = Model.StateCode})
-=======
-       <div class="editor-field">@Html.EditorFor(modelitem => Model.Ucc1Debtors)</div>
+            <div>@Html.DisplayFor(m => m.StateCode)</div>
+        
+            <div>@Html.HiddenFor(m => m.StateCode)</div>
+
+        </div>
+
+        @Html.EditorFor(modelitem => Model.Ucc1Debtors)
         
         <input type="submit" value="Add Debtor" name="action" class="cancel" />
 
-@*<style type="text/css">
-    
-    .debtors-section {
-        border: 2px solid #030303;
-        padding-left: 20px;
-    }
-
-    .debtor-section {
-        border: 2px solid grey;
-        margin: 20px 20px 20px 0px;
-    }
-
-    .debtor-form {
-        margin: 10px;
-    }
-
-    .section-header h6 {
-        background-color: grey;
-        color: black;
-        margin: 0;
-        padding: 5px;
-    }
-</style>
-<div class="debtors-section">
-    <div class="debtor-section" id="debtor-1">
-        <div class="section-header">
-            <h6>Debtor's full legal name</h6>
-            <fieldset>
-                <legend>Debtor's full legal name</legend>
-
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.StateCode)
-                </div>
-                <div class="editor-field">
-                    @Html.TextBoxFor(m => m.StateCode, new {@readonly = "readonly"})
-                </div>
-
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.Suffix)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.Suffix)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.Suffix)
-                </div>
-
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.Title)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.Title)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.Title)
-                </div>
-
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.FirstName)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.FirstName)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.FirstName)
-                </div>
-
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.MiddleName)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.MiddleName)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.MiddleName)
-                </div>
-
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.LastName)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.LastName)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.LastName)
-                </div>
-
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Ucc1Debtor.SeeInstructions)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Ucc1Debtor.SeeInstructions)
-                    @Html.ValidationMessageFor(model => model.Ucc1Debtor.SeeInstructions)
-                </div>
->>>>>>> be2f9bd12bfe1493b75166f619271ab9a211b421
-
-        <p>
-            <input type="submit" value="Create Filing" />
-        </p>
     </fieldset>
+    
+    <p>
+        <input type="submit" value="Create Filing" />
+    </p>
 </form>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
-
-

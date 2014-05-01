@@ -20,6 +20,7 @@ namespace MvcPoc.Web.Controllers
         public ActionResult Ucc1(Page1Model model)
         {
             var ucc1Model = new Ucc1Model(model.JurisdictionStateCode);
+            ucc1Model.Ucc1Debtors = new List<Ucc1DebtorModel>() { new Ucc1DebtorModel(model.JurisdictionStateCode)};
             return View(ucc1Model);
         }
 
@@ -48,12 +49,6 @@ namespace MvcPoc.Web.Controllers
             {
                 return View("Ucc1");
             }
-        }
-
-        public ActionResult Try()
-        {
-            var model = new CustomValidationModel();
-            return View(model);
         }
 
         [ChildActionOnly]

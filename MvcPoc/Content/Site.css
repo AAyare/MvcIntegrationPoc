@@ -99,15 +99,15 @@ h5, h6 {
 }
 
 #body {
-    background-color: #efeeef;
+    background-color: #ffffff;
     clear: both;
     padding-bottom: 35px;
 }
 
     .main-content {
-        background: url("../Images/accent.png") no-repeat;
+        /*background: url("../Images/accent.png") no-repeat;*/
         padding-left: 10px;
-        padding-top: 30px;
+        padding-top: 0px;
     }
 
     .featured + .main-content {
@@ -328,6 +328,31 @@ aside {
     font-weight: 700;
 }
 
+.editor-field {
+    text-align: left;
+    width: 48%;
+    display: inline-block;
+}
+
+.editor-label {
+    text-align: left;
+    width: 45%;
+    display: inline-block;
+    margin-left: 7px;
+}
+
+.create-filing-header {
+    background-color: #808080;
+    color: #ffffff;
+    font-size: 2em;
+    text-align: center;
+}
+
+.create-filing-header h2 {
+    font-size: 1em;
+    color: #ffffff;
+}
+
 /* login page */
 #loginForm {
     border-right: solid 2px #c8c8c8;
@@ -436,7 +461,7 @@ input, textarea {
 
 textarea {
     font-family: inherit;
-    width: 500px;
+    width: 300px;
 }
 
     input:focus, textarea:focus {
