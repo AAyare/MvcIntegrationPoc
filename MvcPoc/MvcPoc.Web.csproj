@@ -193,6 +193,7 @@
     <Compile Include="Models\CustomValidationModel.cs" />
     <Compile Include="Models\Debtor\Ucc1DebtorModel.cs" />
     <Compile Include="Models\Debtor\Ucc3DebtorModel.cs" />
+    <Compile Include="Models\Page1Model.cs" />
     <Compile Include="Models\SecuredParty\Ucc1SecuredPartyModel.cs" />
     <Compile Include="Models\SecuredParty\Ucc3SecuredPartyModel.cs" />
     <Compile Include="Models\Ucc1Model.cs" />

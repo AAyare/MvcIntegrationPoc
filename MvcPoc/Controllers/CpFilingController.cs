@@ -15,10 +15,10 @@ namespace MvcPoc.Web.Controllers
             return View(ucc1);
         }
 
-        public ActionResult Ucc1(string stateCode)
+        public ActionResult Ucc1(Page1Model model)
         {
-            var model = new Ucc1Model(stateCode);
-            return View(model);
+            var ucc1Model = new Ucc1Model(model.JurisdictionStateCode);
+            return View(ucc1Model);
         }
 
         [HttpPost]
