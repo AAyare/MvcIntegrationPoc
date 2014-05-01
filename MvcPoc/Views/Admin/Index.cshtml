@@ -1,0 +1,12 @@
+﻿
+<h2>Index</h2>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h4>Welcome : @User.FirstName</h4>
+<h1>Admin DashBoard</h1>
+@Html.ActionLink("User Dashboard", "Index", "User", null, new { @class = "navbar-brand" })
+
+
