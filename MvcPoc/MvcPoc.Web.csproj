@@ -185,14 +185,26 @@
     <Compile Include="Controllers\BaseFilingController.cs" />
     <Compile Include="Controllers\CpFilingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\CustomPrincipal.cs" />
+    <Compile Include="DAL\CustomRoleProvider.cs" />
+    <Compile Include="DAL\Role.cs" />
+    <Compile Include="DAL\Security\BaseViewPage.cs" />
+    <Compile Include="DAL\Security\CustomAuthorizeAttribute.cs" />
+    <Compile Include="DAL\Security\CustomMembershipProvider.cs" />
+    <Compile Include="DAL\Security\DataContext.cs" />
+    <Compile Include="DAL\Security\DataContextInitializer.cs" />
+    <Compile Include="DAL\Security\Test.cs" />
+    <Compile Include="DAL\User.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CustomPrincipalSerializeModel.cs" />
     <Compile Include="Models\CustomValidationModel.cs" />
     <Compile Include="Models\Debtor\Ucc1DebtorModel.cs" />
     <Compile Include="Models\Debtor\Ucc3DebtorModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Page1Model.cs" />
     <Compile Include="Models\SecuredParty\Ucc1SecuredPartyModel.cs" />
     <Compile Include="Models\SecuredParty\Ucc3SecuredPartyModel.cs" />
@@ -321,6 +333,9 @@
     <Content Include="Views\CpFiling\Index.cshtml" />
     <Content Include="Views\Shared\DebtorSection\_ViewDebtorSection.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Ucc1DebtorModel.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Error\AccessDenied.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
