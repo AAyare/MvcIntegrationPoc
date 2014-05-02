@@ -12,6 +12,6 @@ namespace MvcPoc.Web.Models
 
         public string StateCode { get; private set; }
 
-        public List<Ucc1DebtorModel> Ucc1Debtors { get; set; }
+        public Ucc1DebtorModel[] Ucc1Debtors { get; set; }
     }
 }

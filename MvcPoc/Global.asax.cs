@@ -8,9 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using MvcPoc.Web.App_Start;
 using MvcPoc.Web.Models;
-using System.Web.Security;
-using MvcPoc.Web.DAL.Security;
-using Newtonsoft.Json;
+using MvcPoc.Web.Utils.CustomModelBinders;
 
 namespace MvcPoc.Web
 {
@@ -29,23 +27,6 @@ namespace MvcPoc.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             ModelBinders.Binders.Add(typeof(Ucc1Model),new Ucc1ModelBinder());
-            System.Data.Entity.Database.SetInitializer<DataContext>(new DataContextInitializer());
-        }
-
-        protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
-        {
-            HttpCookie authCooke = Request.Cookies[FormsAuthentication.FormsCookieName];
-            if (authCooke != null)
-            {
-                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCooke.Value);
-                CustomPrincipalSerializeModel serializeModel = JsonConvert.DeserializeObject<CustomPrincipalSerializeModel>(authTicket.UserData);
-                MvcPoc.Web.DAL.CustomPrincipal newUser = new DAL.CustomPrincipal(authTicket.UserData);
-                newUser.UserId = serializeModel.UserID;
-                newUser.FirstName = serializeModel.FirstName;
-                newUser.LastName = serializeModel.LastName;
-                newUser.roles = serializeModel.roles;
-                HttpContext.Current.User = newUser;
-            }
         }
     }
 }
