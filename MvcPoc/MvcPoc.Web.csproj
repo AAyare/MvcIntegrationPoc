@@ -344,6 +344,7 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
+	  <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Shared\DebtorSection\_DebtorSection.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DebtorFavorite.cshtml" />
   </ItemGroup>
