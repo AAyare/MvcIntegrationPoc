@@ -182,29 +182,45 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaseFilingController.cs" />
     <Compile Include="Controllers\CpFilingController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAL\CustomPrincipal.cs" />
+    <Compile Include="DAL\CustomRoleProvider.cs" />
+    <Compile Include="DAL\Role.cs" />
+    <Compile Include="DAL\Security\BaseViewPage.cs" />
+    <Compile Include="DAL\Security\CustomAuthorizeAttribute.cs" />
+    <Compile Include="DAL\Security\CustomMembershipProvider.cs" />
+    <Compile Include="DAL\Security\DataContext.cs" />
+    <Compile Include="DAL\Security\DataContextInitializer.cs" />
+    <Compile Include="DAL\Security\Test.cs" />
+    <Compile Include="DAL\User.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CustomPrincipalSerializeModel.cs" />
     <Compile Include="Models\CustomValidationModel.cs" />
     <Compile Include="Models\Debtor\DebtorFavorite.cs" />
     <Compile Include="Models\Debtor\Ucc1DebtorModel.cs" />
     <Compile Include="Models\Debtor\Ucc1DebtorSectionModel.cs" />
     <Compile Include="Models\Debtor\Ucc3DebtorModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Page1Model.cs" />
     <Compile Include="Models\SecuredParty\Ucc1SecuredPartyModel.cs" />
     <Compile Include="Models\SecuredParty\Ucc3SecuredPartyModel.cs" />
     <Compile Include="Models\Ucc1Model.cs" />
     <Compile Include="Models\Ucc3Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ucc1ModelBinder.cs" />
     <Compile Include="Utils\CustomActionNames\MultiButtonFormPost.cs" />
     <Compile Include="Utils\CustomAttributes\NotEqualToAttribute.cs" />
     <Compile Include="Utils\CustomAttributes\RequiredIfStateCodeIsAttribute.cs" />
+    <Compile Include="Utils\CustomModelBinders\Ucc1ModelBinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\nav-header.png" />
@@ -323,6 +339,11 @@
     <Content Include="Views\CpFiling\Index.cshtml" />
     <Content Include="Views\Shared\DebtorSection\_ViewDebtorSection.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Ucc1DebtorModel.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Error\AccessDenied.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Shared\DebtorSection\_DebtorSection.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DebtorFavorite.cshtml" />
   </ItemGroup>

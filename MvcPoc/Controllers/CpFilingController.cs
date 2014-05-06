@@ -17,16 +17,22 @@ namespace MvcPoc.Web.Controllers
             return View(ucc1);
         }
 
-        public ActionResult Ucc1(Page1Model model)
+        public ActionResult Ucc1(string stateCode)
         {
-            var ucc1Model = new Ucc1Model(model.JurisdictionStateCode);
-            ucc1Model.Ucc1Debtors = new List<Ucc1DebtorModel>() { new Ucc1DebtorModel(model.JurisdictionStateCode)};
-            return View(ucc1Model);
+            var model = new Ucc1Model(stateCode)
+                            {
+                                Ucc1Debtors =
+                                    (new List<Ucc1DebtorModel>()
+                                         {
+                                             new Ucc1DebtorModel(stateCode) {}
+                                         }).ToArray()
+                            };
+            return View(model);
         }
 
-       [HttpPost]
-       [MultiButton(MatchFormKey = "action", MatchFormValue = "Create Filing")] 
-        public ActionResult Ucc1(Ucc1Model model,string stateCode)
+        [AcceptVerbs(HttpVerbs.Post)]
+        [MultiButton(MatchFormKey = "action", MatchFormValue = "Create Filing")]
+        public ActionResult Ucc1(Ucc1Model model)
         {
             if (TryUpdateModel(model))
             {
@@ -35,19 +41,22 @@ namespace MvcPoc.Web.Controllers
 
             return View(model);
         }
-       
-        [MultiButton(MatchFormKey = "action", MatchFormValue = "Add Debtor")]
+
         [AcceptVerbs(HttpVerbs.Post)]
+        [MultiButton(MatchFormKey = "action", MatchFormValue = "Add Debtor")]
         public ActionResult AddDebtor(Ucc1Model viewModel)
         {
             try
             {
-                viewModel.Ucc1Debtors.Add(new Ucc1DebtorModel(viewModel.Ucc1Debtors[0].StateCode){});
+                List<Ucc1DebtorModel> lst = new List<Ucc1DebtorModel>();
+                lst.AddRange(viewModel.Ucc1Debtors);
+                lst.Add(new Ucc1DebtorModel(viewModel.Ucc1Debtors[0].StateCode) { });
+                viewModel.Ucc1Debtors = lst.ToArray();
                 return View("Ucc1", viewModel);
             }
             catch
             {
-                return View("Ucc1");
+                return View("Ucc1",viewModel);
             }
         }
 

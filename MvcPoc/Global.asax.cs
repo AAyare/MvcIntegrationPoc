@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using MvcPoc.Web.App_Start;
 using MvcPoc.Web.Models;
+using MvcPoc.Web.Utils.CustomModelBinders;
 
 namespace MvcPoc.Web
 {

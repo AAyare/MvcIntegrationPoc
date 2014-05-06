@@ -1,6 +1,6 @@
 ﻿using MvcPoc.Web.Filters;
 
-namespace MvcPoc.Controllers
+namespace MvcPoc.Web.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -8,19 +8,84 @@ namespace MvcPoc.Controllers
     using System.Transactions;
     using System.Web.Mvc;
     using System.Web.Security;
+    using System.Web;
     using DotNetOpenAuth.AspNet;
     using Microsoft.Web.WebPages.OAuth;
     using Web.Filters;
     using Web.Models;
     using WebMatrix.WebData;
-
+    using MvcPoc.Web.Models;
+    using MvcPoc.Web.DAL.Security;
+    using Newtonsoft.Json;
     /// <summary>
     /// The account controller.
     /// </summary>
-    [Authorize]
-    [InitializeSimpleMembership]
+    /// 
+   // [Authorize]
+    //[InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        DataContext Context = new DataContext();
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(LoginModel model, string returnUrl = "")
+        {
+            if (ModelState.IsValid)
+            {
+                var user = Context.Users.Where(u => u.UserName == model.UserName && u.Password == model.Password).FirstOrDefault();
+                if (user != null)
+                {
+                    var roles = user.Roles.Select(m => m.RoleName).ToArray();
+
+                    CustomPrincipalSerializeModel serializeModel = new CustomPrincipalSerializeModel();
+                    serializeModel.UserID = user.UserId;
+                    serializeModel.FirstName = user.FirstName;
+                    serializeModel.LastName = user.LastName;
+                    serializeModel.roles = roles;
+
+                    string userData = JsonConvert.SerializeObject(serializeModel);
+                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
+                             1,
+                            user.Email,
+                             DateTime.Now,
+                             DateTime.Now.AddMinutes(15),
+                             false,
+                             userData);
+
+                    string encTicket = FormsAuthentication.Encrypt(authTicket);
+                    HttpCookie faCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+                    Response.Cookies.Add(faCookie);
+
+                    if (roles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else if (roles.Contains("User"))
+                    {
+                        return RedirectToAction("Index", "User");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+
+                ModelState.AddModelError("", "Incorrect username and/or password");
+            }
+
+            return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login", "Account", null);
+        }
         //
         // GET: /Account/Login
 
@@ -82,8 +147,7 @@ namespace MvcPoc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            WebSecurity.Logout();
-
+         //   WebSecurity.Logout();
             return RedirectToAction("Index", "Home");
         }
 
