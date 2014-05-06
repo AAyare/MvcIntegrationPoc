@@ -19,12 +19,42 @@
         padding: 5px;
     }
 </style>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#Ucc1Debtors_0__SelectedDebtorFavoriteId').change(function (e) {
+            var selectedId = $('#Ucc1Debtors_0__SelectedDebtorFavoriteId').val();
+            $.get('getFavoriteDebtor/' + selectedId, function (data, status) {
+                if(status=='success')
+                    pasteResult(data);
+            });
+        });
+    });
+    
+    function pasteResult(data) {
+        $("input[name='Ucc1Debtors[0].FirstName']").val(data.FirstName);
+        $("input[name='Ucc1Debtors[0].MiddleName']").val(data.MiddleName);
+        $("input[name='Ucc1Debtors[0].LastName']").val(data.LastName);
+        $("input[name='Ucc1Debtors[0].Suffix']").val(data.Suffix);
+        $("input[name='Ucc1Debtors[0].Title']").val(data.Title);
+        $("textarea[name='Ucc1Debtors[0].SeeInstructions']").val(data.SeeInstructions);
+    }
+
+</script>
+
 <div class="debtors-section">
     <div class="debtor-section" id="debtor-1">
         <div class="section-header">
             <h6>Debtor's Exact Full Legal Name</h6>
             <fieldset>
                 <legend>Debtor's Exact Full Legal Name</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SelectedDebtorFavoriteId)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.SelectedDebtorFavoriteId, Model.DebtorFavoriteItems)
+                </div>
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.StateCode)

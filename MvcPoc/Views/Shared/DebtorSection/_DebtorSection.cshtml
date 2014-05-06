@@ -1,0 +1,33 @@
+﻿@model MvcPoc.Web.Models.Debtor.Ucc1DebtorSectionModel
+
+<script type="text/javascript">
+    $.ajax({
+        url: '/cpfiling/adddebtor',
+        type: 'POST',
+        data:
+        {
+            StateCode: 'South Dakota',
+            Debtors:
+            {
+                
+            }
+        }
+    });
+    
+    function getDebtorsArray() {
+        var numberOfDebtors = 2;
+        var debtors = {};
+        for (var i = 0; i < numberOfDebtors; i++) {
+            
+        }
+    }
+</script>
+
+<fieldset>
+    <legend>Create a UCC 1 Filing</legend>
+        
+    @Html.EditorFor(m => m.Debtors)
+        
+    <input type="button" value="Add Debtor" name="action" class="cancel" />
+
+</fieldset>

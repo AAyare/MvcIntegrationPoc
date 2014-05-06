@@ -191,7 +191,9 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CustomValidationModel.cs" />
+    <Compile Include="Models\Debtor\DebtorFavorite.cs" />
     <Compile Include="Models\Debtor\Ucc1DebtorModel.cs" />
+    <Compile Include="Models\Debtor\Ucc1DebtorSectionModel.cs" />
     <Compile Include="Models\Debtor\Ucc3DebtorModel.cs" />
     <Compile Include="Models\Page1Model.cs" />
     <Compile Include="Models\SecuredParty\Ucc1SecuredPartyModel.cs" />
@@ -321,6 +323,8 @@
     <Content Include="Views\CpFiling\Index.cshtml" />
     <Content Include="Views\Shared\DebtorSection\_ViewDebtorSection.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Ucc1DebtorModel.cshtml" />
+    <Content Include="Views\Shared\DebtorSection\_DebtorSection.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DebtorFavorite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
