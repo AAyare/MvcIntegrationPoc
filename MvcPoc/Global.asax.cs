@@ -29,6 +29,7 @@ namespace MvcPoc.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             ModelBinders.Binders.Add(typeof(Ucc1Model),new Ucc1ModelBinder());
+            System.Data.Entity.Database.SetInitializer<DataContext>(new DataContextInitializer());
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
