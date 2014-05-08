@@ -6,7 +6,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form method="post">
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Ucc1.js")"></script>
+}
+
+@using (Html.BeginForm("Action", "CpFiling"))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -24,7 +30,7 @@
 
         @Html.EditorFor(modelitem => Model.Ucc1Debtors)
         
-        <input type="submit" value="Add Additional Debtor" name="action" class="cancel" />
+        <input type="submit" value="Add Additional Debtor" name="AddDebtor" class="cancel" />
 
         @{ Html.RenderAction("RenderSecuredPartySection", new {statecode = Model.StateCode});}
         
@@ -34,6 +40,6 @@
     </fieldset>
     
     <p>
-        <input type="submit" value="Create Filing"  name="action"/>
+        <input type="submit" value="Create Filing"  name="Ucc1"/>
     </p>
-</form>
+}

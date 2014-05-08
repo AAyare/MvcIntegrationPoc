@@ -14,6 +14,7 @@ namespace MvcPoc.Web.Models.Debtor
             StateCode = stateCode;
         }
 
+        private int _id;
         private string _suffix;
         private string _title;
         private string _firstName;
@@ -21,6 +22,8 @@ namespace MvcPoc.Web.Models.Debtor
         private string _lastName;
         private string _seeInstructions;
         private string _stateCode;
+        private bool _isRemoved;
+        private bool _canHideRemoveDebtor;
         private readonly List<DebtorFavorite> _debtorFavorites = new List<DebtorFavorite>
             {
                 new DebtorFavorite
@@ -64,6 +67,12 @@ namespace MvcPoc.Web.Models.Debtor
                     });
                 return favorites;
             }
+        }
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Suffix is required.")]
@@ -116,6 +125,18 @@ namespace MvcPoc.Web.Models.Debtor
         {
             get { return _stateCode; }
             private set { _stateCode = value; }
+        }
+
+        public bool IsRemoved
+        {
+            get { return _isRemoved; }
+            set { _isRemoved = value; }
+        }
+
+        public bool CanShowRemoveDebtor
+        {
+            get { return _canHideRemoveDebtor; }
+            set { _canHideRemoveDebtor = value; }
         }
     }
 }
