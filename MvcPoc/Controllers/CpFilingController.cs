@@ -17,40 +17,38 @@ namespace MvcPoc.Web.Controllers
             return View(ucc1);
         }
 
-        public ActionResult Ucc1(string stateCode)
+        public ActionResult Ucc1(Page1Model model)
         {
-            var model = new Ucc1Model(stateCode)
-                            {
-                                Ucc1Debtors =
-                                    (new List<Ucc1DebtorModel>()
+            var ucc1Model = new Ucc1Model(model.JurisdictionStateCode);
+            ucc1Model.Ucc1Debtors = new List<Ucc1DebtorModel>()
                                          {
-                                             new Ucc1DebtorModel(stateCode) {}
-                                         }).ToArray()
-                            };
-            return View(model);
+                                             new Ucc1DebtorModel(model.JurisdictionStateCode) {Id=0}
+                                         }.ToArray();
+
+            return View(ucc1Model);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        [MultiButton(MatchFormKey = "action", MatchFormValue = "Create Filing")]
+        [FormPostByFieldName]
         public ActionResult Ucc1(Ucc1Model model)
         {
             if (TryUpdateModel(model))
             {
-                RedirectToAction("Index", model);
+                return View("Ucc1", model);
             }
 
-            return View(model);
+            return View("Ucc1", model);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        [MultiButton(MatchFormKey = "action", MatchFormValue = "Add Debtor")]
+        [FormPostByFieldName]
         public ActionResult AddDebtor(Ucc1Model viewModel)
         {
             try
             {
                 List<Ucc1DebtorModel> lst = new List<Ucc1DebtorModel>();
                 lst.AddRange(viewModel.Ucc1Debtors);
-                lst.Add(new Ucc1DebtorModel(viewModel.Ucc1Debtors[0].StateCode) { });
+                lst.Add(new Ucc1DebtorModel(viewModel.Ucc1Debtors[0].StateCode) { Id = viewModel.Ucc1Debtors.Length, CanShowRemoveDebtor = true });
                 viewModel.Ucc1Debtors = lst.ToArray();
                 return View("Ucc1", viewModel);
             }

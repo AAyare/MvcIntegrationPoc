@@ -42,8 +42,7 @@
 
 </script>
 
-<div class="debtors-section">
-    <div class="debtor-section" id="debtor-1">
+<div class="debtor-section" id="@string.Format("{0}-{1}","debtor-section",Model.Id)">
         <div class="section-header">
             <h6>Debtor's Exact Full Legal Name</h6>
             <fieldset>
@@ -110,9 +109,19 @@
                     @Html.EditorFor(model => model.SeeInstructions)
                     @Html.ValidationMessageFor(model => model.SeeInstructions)
                 </div>
+                @Html.HiddenFor(model => model.CanShowRemoveDebtor)
+                @Html.HiddenFor(model => model.IsRemoved)
+                @if (Model.CanShowRemoveDebtor)
+                {
+                    <div class="editor-label">
+                    
+                    </div>
+                    <div class="editor-field">
+                        <input type="button" id="@string.Format("{0}-{1}", "Remove-Debtor", Model.Id)" value="Remove Debtor" />
+                    </div>
+                }
             </fieldset>
-        </div>
-    </div>
+     </div>
 </div>
 <br/>
 

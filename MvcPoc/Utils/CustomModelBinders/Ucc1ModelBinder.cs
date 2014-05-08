@@ -23,7 +23,10 @@ namespace MvcPoc.Web.Utils.CustomModelBinders
             {
                 StateCode = controllerContext.HttpContext.Request.Form["StateCode"];
                 Dictionary<string, string> dicFormCollection = GetFormDictionay(controllerContext);
-                return GetObjectFromDictionary(dicFormCollection, typeof(Ucc1Model));
+                Ucc1Model ucc1Model = GetObjectFromDictionary(dicFormCollection, typeof(Ucc1Model));
+                ucc1Model.Ucc1Debtors = ucc1Model.Ucc1Debtors.Where(debtor => !debtor.IsRemoved).ToArray();
+                ucc1Model.Ucc1Debtors = ucc1Model.Ucc1Debtors.Select((c, index) => { c.Id = index; return c; }).ToArray();
+                return ucc1Model;
             }
             catch (Exception exception)
             {
@@ -117,6 +120,8 @@ namespace MvcPoc.Web.Utils.CustomModelBinders
                     }
                     value = returnArray;
                 }
+                else if (typeCode == TypeCode.Int32)
+                    value = Convert.ToInt32(dictionaryValue);
                 else if (typeCode == TypeCode.Object)
                 {
                     var dictionaryOfObject =
