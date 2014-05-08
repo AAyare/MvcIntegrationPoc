@@ -17,7 +17,7 @@
         $("input[name='SecuredpartySet[0].MiddleName']").val(data.MiddleName);
         $("input[name='SecuredpartySet[0].LastName']").val(data.LastName);
         $("input[name='SecuredpartySet[0].Suffix']").val(data.Suffix);
-        $("input[name='SecuredpartySet[0].Title']").val(data.Title);
+        $("input[name='SecuredpartySet[0].OrganizationName']").val(data.OrganizationName);
     }
 
 </script>
@@ -49,6 +49,14 @@
             <div class="editor-field">
                 @Html.RadioButtonForEnum(model => model.PartyType)
                 @Html.ValidationMessageFor(model => model.PartyType)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OrganizationName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.OrganizationName)
+                @Html.ValidationMessageFor(model => model.OrganizationName)
             </div>
 
             <div class="editor-label">

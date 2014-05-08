@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
-using MvcPoc.Web.Utils.CustomAttributes;
 
 namespace MvcPoc.Web.Models.Debtor
 {
@@ -75,20 +74,24 @@ namespace MvcPoc.Web.Models.Debtor
             set { _id = value; }
         }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Suffix is required.")]
+        [DisplayName("Party Type")]
+        public PartyType PartyType { get; set; }
+
         public string Suffix
         {
             get { return _suffix; }
             set { _suffix = value; }
         }
-        
+
+        [DisplayName("Organization Name")]
+        public string OrganizationName { get; set; }
+
         public string Title
         {
             get { return _title; }
             set { _title = value; }
         }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "First name is required.")]
         [Display(Name = "First Name")]
         public string FirstName
         {
@@ -96,7 +99,6 @@ namespace MvcPoc.Web.Models.Debtor
             set { _firstName = value; }
         }
 
-        //[NotEqualTo("Suffix", ErrorMessage = "Middle Name cannot be equal to Suffix.")]
         [Display(Name = "Middle Name")]
         public string MiddleName
         {
@@ -104,7 +106,6 @@ namespace MvcPoc.Web.Models.Debtor
             set { _middleName = value; }
         }
 
-        //[NotEqualTo("FirstName", ErrorMessage = "Last Name cannot be equal to First Name.")]
         [Display(Name = "Last Name")]
         public string LastName
         {
@@ -112,14 +113,17 @@ namespace MvcPoc.Web.Models.Debtor
             set { _lastName = value; }
         }
 
-        [DataType(DataType.MultilineText)]
-        [RequiredIfStateCodeIs("StateCode", "SD,NY", ErrorMessage = "See instructions is required for this jurisdiction.")]
-        [Display(Name = "See Instructions")]
-        public string SeeInstructions
-        {
-            get { return _seeInstructions; }
-            set { _seeInstructions = value; }
-        }
+        [DisplayName("Mailing Address")]
+        public string MailingAddress { get; set; }
+
+        [DisplayName("City")]
+        public string City { get; set; }
+
+        [DisplayName("Postal Code")]
+        public string PostalCode { get; set; }
+
+        [DisplayName("Country")]
+        public string Country { get; set; }
 
         public string StateCode
         {

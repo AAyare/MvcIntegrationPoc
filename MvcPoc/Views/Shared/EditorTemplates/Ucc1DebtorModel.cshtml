@@ -1,4 +1,5 @@
-﻿@model MvcPoc.Web.Models.Debtor.Ucc1DebtorModel
+﻿@using MvcPoc.Web.Utils.HtmlExtensions
+@model MvcPoc.Web.Models.Debtor.Ucc1DebtorModel
 
 
 <style type="text/css">
@@ -21,8 +22,7 @@
         $("input[name='Ucc1Debtors[0].MiddleName']").val(data.MiddleName);
         $("input[name='Ucc1Debtors[0].LastName']").val(data.LastName);
         $("input[name='Ucc1Debtors[0].Suffix']").val(data.Suffix);
-        $("input[name='Ucc1Debtors[0].Title']").val(data.Title);
-        $("textarea[name='Ucc1Debtors[0].SeeInstructions']").val(data.SeeInstructions);
+        $("input[name='Ucc1Debtors[0].OrganizationName']").val(data.OrganizationName);
     }
 
 </script>
@@ -47,21 +47,21 @@
             <div class="editor-field">
                 @Html.TextBoxFor(m => m.StateCode, new {@readonly = "readonly"})
             </div>
-
+            
             <div class="editor-label">
-                @Html.LabelFor(model => model.Suffix)
+                @Html.LabelFor(model => model.PartyType)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Suffix)
-                @Html.ValidationMessageFor(model => model.Suffix)
+                @Html.RadioButtonForEnum(model => model.PartyType)
+                @Html.ValidationMessageFor(model => model.PartyType)
             </div>
 
             <div class="editor-label">
-                @Html.LabelFor(model => model.Title)
+                @Html.LabelFor(model => model.OrganizationName)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Title)
-                @Html.ValidationMessageFor(model => model.Title)
+                @Html.EditorFor(model => model.OrganizationName)
+                @Html.ValidationMessageFor(model => model.OrganizationName)
             </div>
 
             <div class="editor-label">
@@ -87,14 +87,55 @@
                 @Html.EditorFor(model => model.LastName)
                 @Html.ValidationMessageFor(model => model.LastName)
             </div>
-
+            
             <div class="editor-label">
-                @Html.LabelFor(model => model.SeeInstructions)
+                @Html.LabelFor(model => model.Suffix)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.SeeInstructions)
-                @Html.ValidationMessageFor(model => model.SeeInstructions)
+                @Html.EditorFor(model => model.Suffix)
+                @Html.ValidationMessageFor(model => model.Suffix)
             </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MailingAddress)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MailingAddress)
+                @Html.ValidationMessageFor(model => model.MailingAddress)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.City)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.City)
+                @Html.ValidationMessageFor(model => model.City)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.StateCode)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.StateCode)
+                @Html.ValidationMessageFor(model => model.StateCode)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.PostalCode)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.PostalCode)
+                @Html.ValidationMessageFor(model => model.PostalCode)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Country)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Country)
+                @Html.ValidationMessageFor(model => model.Country)
+            </div>
+
             @Html.HiddenFor(model => model.CanShowRemoveDebtor)
             @Html.HiddenFor(model => model.IsRemoved)
             @if (Model.CanShowRemoveDebtor)

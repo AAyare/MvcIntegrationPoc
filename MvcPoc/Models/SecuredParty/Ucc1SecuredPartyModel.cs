@@ -13,6 +13,7 @@ namespace MvcPoc.Web.Models.SecuredParty
             get { return _id; }
             set { _id = value; }
         }
+
         [DisplayName("Party Type")]
         public PartyType PartyType { get; set; }
 

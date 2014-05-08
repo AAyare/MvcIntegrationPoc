@@ -13,6 +13,7 @@ namespace MvcPoc.Web.Models.SecuredParty
         public Ucc1SecuredPartySectionModel(string stateCode)
         {
             _stateCode = stateCode;
+            _securedPartySet = new List<Ucc1SecuredPartyModel>();
         }
 
         public string StateCode{get { return _stateCode; }}
