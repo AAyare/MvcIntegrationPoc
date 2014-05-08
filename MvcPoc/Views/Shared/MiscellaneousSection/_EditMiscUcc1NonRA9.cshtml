@@ -1,0 +1,27 @@
+﻿@model MvcPoc.Web.Models.Miscellaneous.Ucc1MiscellaneousModel
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@*@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    *@<fieldset>
+        <legend>Ucc1MiscellaneousModelNonRA9</legend>
+        <table>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.FiledinRealEstate)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.FiledinRealEstate)
+                    @Html.ValidationMessageFor(model => model.FiledinRealEstate)
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+@*}*@
+
+

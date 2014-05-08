@@ -1,0 +1,12 @@
+﻿@model MvcPoc.Web.Models.Addendum.Ucc3AddendumModel.AddendumPartyType
+
+<table>
+    <tr>
+        @foreach (var value in Enum.GetValues(typeof(MvcPoc.Web.Models.Addendum.Ucc3AddendumModel.AddendumPartyType)))
+        {
+            <td style="width:20px">
+                @Html.RadioButtonFor(modelitem => modelitem, value)@Html.Label(value.ToString())
+            </td>
+        }
+    </tr>
+</table>

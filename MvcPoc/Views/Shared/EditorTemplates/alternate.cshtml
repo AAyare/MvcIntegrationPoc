@@ -1,0 +1,13 @@
+﻿@model MvcPoc.Web.Models.Miscellaneous.Ucc1MiscellaneousModel.Alternate
+
+<table>
+    <tr>
+        @foreach (var value in Enum.GetValues(typeof(MvcPoc.Web.Models.Miscellaneous.Ucc1MiscellaneousModel.Alternate)))
+        {
+            <td style="width:20px">
+                @Html.RadioButtonFor(modelitem => modelitem, value)@Html.Label(value.ToString())
+            </td>
+        }
+    </tr>
+</table>
+
