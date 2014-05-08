@@ -204,6 +204,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Collateral\CollateralType.cs" />
+    <Compile Include="Models\Collateral\Ucc1CollateralModel.cs" />
     <Compile Include="Models\CustomPrincipalSerializeModel.cs" />
     <Compile Include="Models\CustomValidationModel.cs" />
     <Compile Include="Models\Debtor\DebtorFavorite.cs" />
@@ -212,7 +214,10 @@
     <Compile Include="Models\Debtor\Ucc3DebtorModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Page1Model.cs" />
+    <Compile Include="Models\PartyType.cs" />
+    <Compile Include="Models\SecuredParty\PartyFavorite.cs" />
     <Compile Include="Models\SecuredParty\Ucc1SecuredPartyModel.cs" />
+    <Compile Include="Models\SecuredParty\Ucc1SecuredPartySectionModel.cs" />
     <Compile Include="Models\SecuredParty\Ucc3SecuredPartyModel.cs" />
     <Compile Include="Models\Ucc1Model.cs" />
     <Compile Include="Models\Ucc3Model.cs" />
@@ -221,6 +226,7 @@
     <Compile Include="Utils\CustomAttributes\NotEqualToAttribute.cs" />
     <Compile Include="Utils\CustomAttributes\RequiredIfStateCodeIsAttribute.cs" />
     <Compile Include="Utils\CustomModelBinders\Ucc1ModelBinder.cs" />
+    <Compile Include="Utils\HtmlExtensions\HtmlExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\nav-header.png" />
@@ -344,14 +350,16 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
-	  <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Shared\DebtorSection\_DebtorSection.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DebtorFavorite.cshtml" />
+    <Content Include="Views\Shared\SecuredPartySection\_SecuredPartySection.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Ucc1SecuredPartyModel.cshtml" />
+    <Content Include="Views\Shared\CollateralSection\_Collateral.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\Addendum\" />
-    <Folder Include="Models\Collateral\" />
     <Folder Include="Models\Miscellaneous\" />
   </ItemGroup>
   <ItemGroup>

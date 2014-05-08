@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using MvcPoc.Web.Models;
+using MvcPoc.Web.Models.Collateral;
 using MvcPoc.Web.Models.Debtor;
+using MvcPoc.Web.Models.SecuredParty;
 using MvcPoc.Web.Utils.CustomActionNames;
 
 namespace MvcPoc.Web.Controllers
@@ -43,7 +45,7 @@ namespace MvcPoc.Web.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        [MultiButton(MatchFormKey = "action", MatchFormValue = "Add Debtor")]
+        [MultiButton(MatchFormKey = "action", MatchFormValue = "Add Additional Debtor")]
         public ActionResult AddDebtor(Ucc1Model viewModel)
         {
             try
@@ -68,10 +70,18 @@ namespace MvcPoc.Web.Controllers
         }
 
         [ChildActionOnly]
-        public ActionResult RenderDebtorDisplay(string stateCode)
+        public ActionResult RenderSecuredPartySection(string statecode)
         {
-            var debtor = new Ucc1DebtorModel(stateCode);
-            return PartialView("DebtorSection/_ViewDebtorSection", debtor);
+            var securedPartyModel = new Ucc1SecuredPartySectionModel(statecode);
+            securedPartyModel.AddSecuredPartyToSet(new Ucc1SecuredPartyModel());
+            return PartialView("SecuredPartySection/_SecuredPartySection", securedPartyModel);
+        }
+
+        [ChildActionOnly]
+        public ActionResult RenderCollateralSection(string statecode)
+        {
+            var collateralModel = new Ucc1CollateralModel();
+            return PartialView("CollateralSection/_Collateral", collateralModel);
         }
     }
 }

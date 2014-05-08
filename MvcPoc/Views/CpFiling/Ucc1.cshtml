@@ -24,8 +24,13 @@
 
         @Html.EditorFor(modelitem => Model.Ucc1Debtors)
         
-        <input type="submit" value="Add Debtor" name="action" class="cancel" />
+        <input type="submit" value="Add Additional Debtor" name="action" class="cancel" />
 
+        @{ Html.RenderAction("RenderSecuredPartySection", new {statecode = Model.StateCode});}
+        
+        <input type="submit" value="Add Additional Secured Party" name="action" class="cancel" />
+        
+        @{ Html.RenderAction("RenderCollateralSection", new {statecode = Model.StateCode});}
     </fieldset>
     
     <p>

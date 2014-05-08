@@ -9,7 +9,8 @@ body {
     border-top: solid 10px #000;
     color: #333;
     font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    /*font-family: "Arial UI", Verdana, Helvetica, Sans-Serif;*/
+    font-family: Arial, sans-serif, serif;
     margin: 0;
     padding: 0;
 }
@@ -330,15 +331,17 @@ aside {
 
 .editor-field {
     text-align: left;
-    width: 48%;
+    width: 70%;
     display: inline-block;
 }
 
 .editor-label {
     text-align: left;
-    width: 45%;
+    width: 25%;
     display: inline-block;
     margin-left: 7px;
+    vertical-align: top;
+    text-align: left;
 }
 
 .create-filing-header {
@@ -352,6 +355,26 @@ aside {
     font-size: 1em;
     color: #ffffff;
 }
+
+    .partial-section{
+        border: 1px solid #cccccc;
+        margin: 10px 0 0 0;
+    }
+
+    .debtor-form {
+        margin: 10px;
+    }
+
+    .section-header {
+        text-align: center;
+    }
+
+    .section-header h6 {
+        background-color: grey;
+        color: #FFFFFF;
+        margin: 0;
+        font-size: 1.5em;
+    }
 
 /* login page */
 #loginForm {
@@ -422,8 +445,8 @@ aside {
 /* forms */
 fieldset {
     border: none;
-    margin: 0;
-    padding: 0;
+    margin-top: 5px;
+    padding: 0 0 15px 0;
 }
 
     fieldset legend {
@@ -440,9 +463,8 @@ fieldset {
         }
 
 label {
-    display: block;
-    font-size: 1.2em;
-    font-weight: 600;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 label.checkbox {
@@ -459,6 +481,8 @@ input, textarea {
     width: 300px;
 }
 
+
+
 textarea {
     font-family: inherit;
     width: 300px;
@@ -472,6 +496,10 @@ textarea {
         background: transparent;
         border: inherit;
         width: auto;
+    }
+
+    input[type="radio"] {
+        width: 30px
     }
 
     input[type="submit"],
