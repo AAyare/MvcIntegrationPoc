@@ -1,0 +1,38 @@
+﻿@using MvcPoc.Web.Utils.HtmlExtensions
+@model MvcPoc.Web.Models.Collateral.Ucc1CollateralModel
+
+<div class="partial-sections">
+<div class="partial-section" id="collateral-1">
+    <div class="section-header">
+        <h6>Collateral</h6>
+        <fieldset>
+            <legend>Collateral</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.AppendCollateral)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.AppendCollateral)
+                @Html.ValidationMessageFor(model => model.AppendCollateral)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Collateral)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Collateral)
+                @Html.ValidationMessageFor(model => model.Collateral)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CollateralType)
+            </div>
+            <div class="editor-field">
+                @Html.RadioButtonForEnum(model => model.CollateralType)
+                @Html.ValidationMessageFor(model => model.CollateralType)
+            </div>
+
+        </fieldset>
+    </div>
+</div>
+    </div>
