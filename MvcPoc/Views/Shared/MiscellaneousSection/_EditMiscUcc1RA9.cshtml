@@ -1,0 +1,37 @@
+﻿@using MvcPoc.Web.Utils.HtmlExtensions
+@model MvcPoc.Web.Models.Miscellaneous.Ucc1MiscellaneousModel
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<fieldset>
+    <legend>Ucc1MiscellaneousModel</legend>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.AlternatefilingType)
+    </div>
+    <div class="editor-field">
+        @Html.RadioButtonForEnum(model => model.AlternatefilingType)
+        @Html.ValidationMessageFor(model => model.AlternatefilingType)
+    </div>
+    <div class="editor-label">
+        
+    </div>
+    <div class="editor-field">
+        @Html.RadioButtonForEnum(model => model.alternate)
+        @Html.ValidationMessageFor(model => model.alternate)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Alternativedesignation)
+    </div>
+      @*TODO: Need to change this radio button list to a check box list
+                    with a standard html extension. See HtmlExtensions.cs for more info.*@
+    <div class="editor-field">
+        @Html.RadioButtonForEnum(model => model.Alternativedesignation)
+        @Html.ValidationMessageFor(model => model.Alternativedesignation)
+    </div>
+
+</fieldset>
+
+
+

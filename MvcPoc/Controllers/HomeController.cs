@@ -30,16 +30,16 @@ namespace MvcPoc.Web.Controllers
             if (model.UccType.ToLower().Equals("ucc3"))
             {
                 if (model.UccSubType.ToLower().Equals("amendment"))
-                    RedirectToAction("Ucc3Amendment", "CpFiling", filingRouteValues);
+                  return RedirectToAction("Ucc3Amendment", "CpFiling", filingRouteValues);
 
                 if (model.UccSubType.ToLower().Equals("continuation"))
-                    RedirectToAction("Ucc3Continuation", "CpFiling", filingRouteValues);
+                    return RedirectToAction("Ucc3Continuation", "CpFiling", filingRouteValues);
 
                 if (model.UccSubType.ToLower().Equals("assignment"))
-                    RedirectToAction("Ucc3Assignment", "CpFiling", filingRouteValues);
+                    return RedirectToAction("Ucc3Assignment", "CpFiling", filingRouteValues);
 
                 if (model.UccSubType.ToLower().Equals("termination"))
-                    RedirectToAction("Ucc3Termination", "CpFiling", filingRouteValues);
+                    return RedirectToAction("Ucc3Termination", "CpFiling", filingRouteValues);
 
             }
 

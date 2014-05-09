@@ -1,0 +1,98 @@
+﻿@model MvcPoc.Web.Models.Miscellaneous.Ucc3MiscellaneousModel
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#OptionalFileReference').keyup(function (e) {
+            var txtVal = $('#OptionalFileReference').val();
+            var OptionalFileReferencetextarea = $('#OptionalFileReferencetextarea').val();
+            for (i in txtVal) {
+                var OptionalFileReferencetext = '' + txtVal[i];
+            }           
+            var array = [txtVal, OptionalFileReferencetextarea]
+            var a = '' + OptionalFileReferencetextarea + OptionalFileReferencetext;
+            $('#OptionalFileReferencetextarea').val(a);
+        });
+    });
+
+    $(document).ready(function () {
+        var isVisible = $('#SeeInstructions').is(':visible');
+        if (isVisible) {
+            $('#SeeInstructions').keyup(function (e) {
+                var txtVal = $('#SeeInstructions').val();
+                $('#OptionalFileReferencetextarea').val(txtVal);
+            });
+        }
+    });
+</script>
+
+
+
+@*@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    
+     *@<style type="text/css">
+        .Miscellaneous-section {
+            border: 2px solid #030303;
+            padding-left: 20px;
+        }
+
+        .Miscellaneous-section1 {
+            border: 2px solid grey;
+            margin: 20px 20px 20px 0px;
+        }
+
+        .debtor-form {
+            margin: 10px;
+        }
+
+        .section-header h6 {
+            background-color: grey;
+            color: black;
+            margin: 0;
+            padding: 5px;
+        }
+
+        input[type="radio"] {
+            width: 20px;
+        }
+   </style>
+    <div class="partial-sections">
+        <div class="partial-section" id="debtor-1">
+            <div class="section-header">
+                <h6>Additional Information</h6>
+                <fieldset>
+                    <legend>Ucc3MiscellaneousModel</legend>
+                    @Html.Action("RenderMiscellaneousUcc3RA9", new { state =  Model.StateCode, FilingType = Model.FilingType })
+                    @Html.Action("RenderMiscellaneousUcc3NonRA9", new { state =  Model.StateCode, FilingType = Model.FilingType })                    
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.OptionalFileReference)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.OptionalFileReference)
+                        @Html.ValidationMessageFor(model => model.OptionalFileReference)
+                    </div>
+                     <div class="editor-label">                        
+                    </div>
+                    <div class="editor-field">
+                        Optional Filer Reference Data(first 70 characters)
+                       will appear on the form as:
+                    </div>
+                      <div class="editor-label">                        
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.OptionalFileReferencetextarea)
+                        @Html.ValidationMessageFor(model => model.OptionalFileReferencetextarea)
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+@*}*@
+
+

@@ -1,0 +1,30 @@
+﻿@model MvcPoc.Web.Models.Ucc3Model
+
+
+@{
+    ViewBag.Title = "Ucc3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Action", "CpFiling"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Create a UCC 3 Filing</legend>
+        
+        <div class="create-filing-header">
+            <h2>Ucc3 Filing</h2>
+
+            <div>@Html.DisplayFor(m => m.StateCode)</div>
+        
+            <div>@Html.HiddenFor(m => m.StateCode)</div>
+
+        </div>
+       
+       @Html.Action("RenderMiscellaneousUcc3", new {state = Model.StateCode, Filingtype = Model.FilingType})
+
+        @Html.Action("RenderAddendumUcc3RA9", new {state = Model.StateCode, Filingtype = Model.FilingType})
+    </fieldset>
+}

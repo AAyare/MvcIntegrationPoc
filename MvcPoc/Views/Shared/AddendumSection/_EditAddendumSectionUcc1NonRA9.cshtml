@@ -1,0 +1,100 @@
+﻿@using MvcPoc.Web.Utils.HtmlExtensions
+@model MvcPoc.Web.Models.Addendum.Ucc1AddendumModel
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<style type="text/css">
+        .Addendum-section {
+            border: 2px solid #030303;
+            padding-left: 20px;
+        }
+
+        .Addendum-section1 {
+            border: 2px solid grey;
+            margin: 20px 20px 20px 0px;
+        }
+
+       
+        .section-header h6 {
+            background-color: grey;
+            color: black;
+            margin: 0;
+            padding: 5px;
+        }
+
+        input[type="radio"] {
+            width: 20px;
+        }
+    </style>   
+<div class="partial-sections">
+    <div class="partial-section">
+        <div class="section-header">
+            <h6>Addendum</h6>
+            <fieldset>
+
+                <legend>Ucc1AddendumModel</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Miscellaneous)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Miscellaneous)
+                    @Html.ValidationMessageFor(model => model.Miscellaneous)
+                </div>
+                <div class="editor-label">                   
+                </div>
+                 <div class="editor-field">
+                    @Html.RadioButtonForEnum(model => model.AddendumFinancingstatement)
+                    @Html.ValidationMessageFor(model => model.AddendumFinancingstatement)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DescriptionofRealEstate)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.DescriptionofRealEstate)
+                    @Html.ValidationMessageFor(model => model.DescriptionofRealEstate)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.UploadAttachment)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.UploadAttachment)
+                    @Html.ValidationMessageFor(model => model.UploadAttachment)  
+                    <input type="submit" value="Browse" />                   
+                </div>       
+                        
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.UploadDesc)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.UploadDesc)
+                    @Html.ValidationMessageFor(model => model.UploadDesc)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.NameAddressofrecordowner)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.NameAddressofrecordowner)
+                    @Html.ValidationMessageFor(model => model.NameAddressofrecordowner)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Debtoris)
+                </div>
+                <div class="editor-field">
+                    @Html.RadioButtonForEnum(model => model.Debtoris)
+                    @Html.ValidationMessageFor(model => model.Debtoris)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Addendumalternatefilingtype)
+                </div>
+                <div class="editor-field">
+                    @Html.RadioButtonForEnum(model => model.Addendumalternatefilingtype)
+                    @Html.ValidationMessageFor(model => model.Addendumalternatefilingtype)
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+

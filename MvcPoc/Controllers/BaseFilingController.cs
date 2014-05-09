@@ -9,15 +9,16 @@ namespace MvcPoc.Web.Controllers
 {
     public class BaseFilingController : Controller
     {
+        //
+        // GET: /BaseFiling/
         public JsonResult getFavoriteDebtor(int id)
         {
             var model = new Dictionary<int, Ucc1DebtorModel>
                 {
                     {
                         1,
-                        new Ucc1DebtorModel("SD")
+                        new Ucc1DebtorModel("SD", "Ucc1")
                             {
-                                OrganizationName = "Organization 1",
                                 FirstName = "Test 1",
                                 MiddleName = "Test 1 Middle Name",
                                 LastName = "Test 1 Last Name",
@@ -26,9 +27,8 @@ namespace MvcPoc.Web.Controllers
                     },
                     {
                         2,
-                        new Ucc1DebtorModel("SD")
+                        new Ucc1DebtorModel("SD", "Ucc1")
                             {
-                                OrganizationName = "Organization 2",
                                 FirstName = "Test 2",
                                 MiddleName = "Test 2 Middle Name",
                                 LastName = "Test 2 Last Name",
@@ -37,9 +37,8 @@ namespace MvcPoc.Web.Controllers
                     },
                     {
                         3,
-                        new Ucc1DebtorModel("SD")
+                        new Ucc1DebtorModel("SD", "Ucc1")
                             {
-                                OrganizationName = "Organization 3",
                                 FirstName = "Test 3",
                                 MiddleName = "Test 3 Middle Name",
                                 LastName = "Test 3 Last Name",
@@ -48,9 +47,8 @@ namespace MvcPoc.Web.Controllers
                     },
                     {
                         4,
-                        new Ucc1DebtorModel("SD")
+                        new Ucc1DebtorModel("SD", "Ucc1")
                             {
-                                OrganizationName = "Organization 4",
                                 FirstName = "Test 4",
                                 MiddleName = "Test 4 Middle Name",
                                 LastName = "Test 4 Last Name",
@@ -59,7 +57,7 @@ namespace MvcPoc.Web.Controllers
                     },
                     {
                         5,
-                        new Ucc1DebtorModel("SD")
+                        new Ucc1DebtorModel("SD", "Ucc1")
                             {
                                 OrganizationName = "Organization 5",
                                 FirstName = "Test 5",
@@ -79,7 +77,7 @@ namespace MvcPoc.Web.Controllers
                 {
                     {
                         1,
-                        new Ucc1DebtorModel("SD")
+                        new Ucc1DebtorModel("SD", "Ucc1")
                             {
                                 OrganizationName = "Organization 1",
                                 FirstName = "Test 1",
@@ -90,7 +88,7 @@ namespace MvcPoc.Web.Controllers
                     },
                     {
                         2,
-                        new Ucc1DebtorModel("SD")
+                        new Ucc1DebtorModel("SD","Ucc1")
                             {
                                 OrganizationName = "Organization 2",
                                 FirstName = "Test 2",
@@ -101,7 +99,7 @@ namespace MvcPoc.Web.Controllers
                     },
                     {
                         3,
-                        new Ucc1DebtorModel("SD")
+                        new Ucc1DebtorModel("SD","Ucc1")
                             {
                                 OrganizationName = "Organization 3",
                                 FirstName = "Test 3",
@@ -112,7 +110,7 @@ namespace MvcPoc.Web.Controllers
                     },
                     {
                         4,
-                        new Ucc1DebtorModel("SD")
+                        new Ucc1DebtorModel("SD","Ucc1")
                             {
                                 OrganizationName = "Organization 4",
                                 FirstName = "Test 4",
@@ -123,7 +121,7 @@ namespace MvcPoc.Web.Controllers
                     },
                     {
                         5,
-                        new Ucc1DebtorModel("SD")
+                        new Ucc1DebtorModel("SD","Ucc1")
                             {
                                 OrganizationName = "Organization 5",
                                 FirstName = "Test 5",

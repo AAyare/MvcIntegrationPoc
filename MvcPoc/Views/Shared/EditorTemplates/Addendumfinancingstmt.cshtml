@@ -1,0 +1,13 @@
+﻿@model MvcPoc.Web.Models.Addendum.Ucc1AddendumModel.AddendumFinancingstmt
+<table>
+    <tr>
+        @foreach (var value in Enum.GetValues(typeof(MvcPoc.Web.Models.Addendum.Ucc1AddendumModel.AddendumFinancingstmt)))
+        {
+            <td style="width:20px">
+                @Html.CheckBox("Checkbox_"+ value, false)
+                @Html.Label(value.ToString())
+            </td>
+        }       
+        
+    </tr>
+</table>

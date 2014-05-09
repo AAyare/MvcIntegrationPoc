@@ -16,12 +16,21 @@ namespace MvcPoc.Web.Utils.CustomModelBinders
             get { return _stateCode; }
             set { _stateCode = value; }
         }
+   private string _filingtype;
+
+        public string FilingType
+        {
+            get { return _filingtype; }
+            set { _filingtype = value; }
+        }
 
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             try
             {
+
                 StateCode = controllerContext.HttpContext.Request.Form["StateCode"];
+FilingType = controllerContext.HttpContext.Request.Form["FilingType"];
                 Dictionary<string, string> dicFormCollection = GetFormDictionay(controllerContext);
                 Ucc1Model ucc1Model = GetObjectFromDictionary(dicFormCollection, typeof(Ucc1Model));
                 ucc1Model.Ucc1Debtors = ucc1Model.Ucc1Debtors.Where(debtor => !debtor.IsRemoved).ToArray();
@@ -49,7 +58,7 @@ namespace MvcPoc.Web.Utils.CustomModelBinders
         private dynamic GetObjectFromDictionary(Dictionary<string, string> data, Type type)
         {
             var instanceObject =(type.Name.Contains("Ucc1Model") || type.Name.Contains("Ucc1DebtorModel"))
-                                ? Activator.CreateInstance(type, new object[] { StateCode }) 
+                                ? Activator.CreateInstance(type, new object[] { StateCode ,FilingType}) 
                                 : Activator.CreateInstance(type);
             var dictionaryKeys = data.Keys.ToList();
 

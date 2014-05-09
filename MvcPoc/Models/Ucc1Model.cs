@@ -5,9 +5,10 @@ namespace MvcPoc.Web.Models
 {
     public class Ucc1Model
     {
-        public Ucc1Model(string stateCode)
+        public Ucc1Model(string stateCode, string filingtype)
         {
             StateCode = stateCode;
+            FilingType = filingtype;
         }
 
         public bool ShowFloridaSection
@@ -16,6 +17,7 @@ namespace MvcPoc.Web.Models
         }
 
         public string StateCode { get; private set; }
+        public string FilingType { get; private set; }
 
         public Ucc1DebtorModel[] Ucc1Debtors { get; set; }
     }
