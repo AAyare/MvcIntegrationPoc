@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace MvcPoc.Web.Models.Addendum
 {
@@ -51,11 +52,11 @@ namespace MvcPoc.Web.Models.Addendum
         public enum AddendumFinancingStatement
         {            
             None=0,
-            [Display(Name = "Timber to be cut")]
+            [Description("Timber to be cut")]
             Timber_to_be_cut = 1,
-            [Display(Name = "As-extracted collateral")]
+            [Description("As-extracted collateral")]
             As_extracted_collateral = 2,
-            [Display(Name = "Fixture Filing")]
+            [Description("Fixture Filing")]
             Fixture_Filing = 3
         }
 
@@ -64,11 +65,11 @@ namespace MvcPoc.Web.Models.Addendum
         { get; set; }
         public enum AddendumFinancingstmt
         {
-            [Display(Name = "Covers Timber to be cut")]
+            [Description("Covers Timber to be cut")]
             Covers_Timber_to_be_cut = 0,
-            [Display(Name = "Covers As-extracted collateral")]
+            [Description("Covers As-extracted collateral")]
             Covers_As_extracted_collateral = 1,
-            [Display(Name = "Fixture Filing")]
+            [Description("Fixture Filing")]
             Fixture_Filing = 2
         }
         [DataType(DataType.MultilineText)]
@@ -117,7 +118,7 @@ namespace MvcPoc.Web.Models.Addendum
             None=0,
             Trust=1,
             Trustee =2,
-            [Display(Name = "Decedent's Estate")]
+            [Description("Decedent's Estate")]
             Decedents_Estate = 3
         }
 
@@ -128,11 +129,11 @@ namespace MvcPoc.Web.Models.Addendum
         public enum AddendumAlternateFilingType
         {
             None = 0,
-            [Display(Name = "Debtor is a Transmitting Utility")]
+            [Description("Debtor is a Transmitting Utility")]
             A_Debtor_is_a_Transmitting_Utility = 1,
-            [Display(Name = "Manufactured Home Transaction")]
-            Manufactured_Home_Transaction = 2,          
-            [Display(Name = "Public Finance Transaction")]
+            [Description("Manufactured Home Transaction")]
+            Manufactured_Home_Transaction = 2,
+            [Description("Public Finance Transaction")]
             Public_Finance_Transaction = 3
         }
 

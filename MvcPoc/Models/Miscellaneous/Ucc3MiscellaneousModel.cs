@@ -45,7 +45,7 @@ namespace MvcPoc.Web.Models.Miscellaneous
             get { return _optionalFileReference; }
             set { _optionalFileReference = value; }
         }
-
+         [DataType(DataType.MultilineText)]
         public string OptionalFileReferencetextarea
         {
             get { return _optionalFileReferencetextarea; }

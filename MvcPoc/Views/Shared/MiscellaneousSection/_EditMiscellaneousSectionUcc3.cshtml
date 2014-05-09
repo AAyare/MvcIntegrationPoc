@@ -62,8 +62,8 @@
             width: 20px;
         }
    </style>
-    <div class="Miscellaneous-section">
-        <div class="Miscellaneous-section1" id="debtor-1">
+    <div class="partial-sections">
+        <div class="partial-section" id="debtor-1">
             <div class="section-header">
                 <h6>Additional Information</h6>
                 <fieldset>
@@ -77,9 +77,13 @@
                         @Html.EditorFor(model => model.OptionalFileReference)
                         @Html.ValidationMessageFor(model => model.OptionalFileReference)
                     </div>
-                    <div class="editor-label">
+                     <div class="editor-label">                        
+                    </div>
+                    <div class="editor-field">
                         Optional Filer Reference Data(first 70 characters)
                        will appear on the form as:
+                    </div>
+                      <div class="editor-label">                        
                     </div>
                     <div class="editor-field">
                         @Html.EditorFor(model => model.OptionalFileReferencetextarea)

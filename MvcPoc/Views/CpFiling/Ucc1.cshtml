@@ -26,6 +26,10 @@
         
             <div>@Html.HiddenFor(m => m.StateCode)</div>
 
+             <div>@Html.DisplayFor(m => m.FilingType)</div>
+        
+            <div>@Html.HiddenFor(m => m.FilingType)</div>
+
         </div>
 
         @Html.EditorFor(modelitem => Model.Ucc1Debtors)
@@ -37,6 +41,10 @@
         <input type="submit" value="Add Additional Secured Party" name="action" class="cancel" />
         
         @{ Html.RenderAction("RenderCollateralSection", new {statecode = Model.StateCode});}
+
+@Html.Action("RenderMiscellaneous", new {state = Model.StateCode, Filingtype = Model.FilingType})    
+           
+        @Html.Action("RenderAddendumUcc1", new {state = Model.StateCode, Filingtype = Model.FilingType})
     </fieldset>
     
     <p>

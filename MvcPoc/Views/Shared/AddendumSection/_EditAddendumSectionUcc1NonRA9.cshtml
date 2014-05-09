@@ -1,4 +1,5 @@
-﻿@model MvcPoc.Web.Models.Addendum.Ucc1AddendumModel
+﻿@using MvcPoc.Web.Utils.HtmlExtensions
+@model MvcPoc.Web.Models.Addendum.Ucc1AddendumModel
 
 <script src="~/Scripts/jquery-1.8.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
@@ -26,8 +27,8 @@
             width: 20px;
         }
     </style>   
-<div class="Addendum-section">
-    <div class="Addendum-section1">
+<div class="partial-sections">
+    <div class="partial-section">
         <div class="section-header">
             <h6>Addendum</h6>
             <fieldset>
@@ -41,8 +42,10 @@
                     @Html.EditorFor(model => model.Miscellaneous)
                     @Html.ValidationMessageFor(model => model.Miscellaneous)
                 </div>
+                <div class="editor-label">                   
+                </div>
                  <div class="editor-field">
-                    @Html.EditorFor(model => model.AddendumFinancingstatement)
+                    @Html.RadioButtonForEnum(model => model.AddendumFinancingstatement)
                     @Html.ValidationMessageFor(model => model.AddendumFinancingstatement)
                 </div>
                 <div class="editor-label">
@@ -57,11 +60,10 @@
                 </div>
                 <div class="editor-field">
                     @Html.EditorFor(model => model.UploadAttachment)
-                    @Html.ValidationMessageFor(model => model.UploadAttachment)
-                </div>
-                <p>
-                    <input type="submit" value="Browse" />
-                </p>
+                    @Html.ValidationMessageFor(model => model.UploadAttachment)  
+                    <input type="submit" value="Browse" />                   
+                </div>       
+                        
                 <div class="editor-label">
                     @Html.LabelFor(model => model.UploadDesc)
                 </div>
@@ -80,7 +82,7 @@
                     @Html.LabelFor(model => model.Debtoris)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Debtoris)
+                    @Html.RadioButtonForEnum(model => model.Debtoris)
                     @Html.ValidationMessageFor(model => model.Debtoris)
                 </div>
 
@@ -88,7 +90,7 @@
                     @Html.LabelFor(model => model.Addendumalternatefilingtype)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Addendumalternatefilingtype)
+                    @Html.RadioButtonForEnum(model => model.Addendumalternatefilingtype)
                     @Html.ValidationMessageFor(model => model.Addendumalternatefilingtype)
                 </div>
             </fieldset>

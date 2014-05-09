@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace MvcPoc.Web.Models.Addendum
 {
@@ -71,11 +72,11 @@ namespace MvcPoc.Web.Models.Addendum
 
         public enum FinancingstatementUcc3
         {
-            [Display(Name = "Covers Timber to be cut")]
+            [Description("Covers Timber to be cut")]
             Covers_Timber_to_be_cut = 0,
-            [Display(Name = "Covers As-extracted collateral")]
+            [Description("Covers As-extracted collateral")]
             Covers_As_extracted_collateral = 1,
-            [Display(Name = "Fixture Filing")]
+            [Description("Fixture Filing")]
             Fixture_Filing = 2
         }
 

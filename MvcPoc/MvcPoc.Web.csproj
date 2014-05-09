@@ -204,6 +204,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Addendum\Ucc1AddendumModel.cs" />
+    <Compile Include="Models\Addendum\Ucc3AddendumModel.cs" />
     <Compile Include="Models\Collateral\CollateralType.cs" />
     <Compile Include="Models\Collateral\Ucc1CollateralModel.cs" />
     <Compile Include="Models\CustomPrincipalSerializeModel.cs" />
@@ -213,6 +215,8 @@
     <Compile Include="Models\Debtor\Ucc1DebtorSectionModel.cs" />
     <Compile Include="Models\Debtor\Ucc3DebtorModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\Miscellaneous\Ucc1MiscellaneousModel.cs" />
+    <Compile Include="Models\Miscellaneous\Ucc3MiscellaneousModel.cs" />
     <Compile Include="Models\Page1Model.cs" />
     <Compile Include="Models\PartyType.cs" />
     <Compile Include="Models\SecuredParty\PartyFavorite.cs" />
@@ -358,11 +362,24 @@
     <Content Include="Views\Shared\SecuredPartySection\_SecuredPartySection.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Ucc1SecuredPartyModel.cshtml" />
     <Content Include="Views\Shared\CollateralSection\_Collateral.cshtml" />
+    <Content Include="Views\CpFiling\Ucc3.cshtml" />
+    <Content Include="Views\Shared\AddendumSection\_EditAddendumSectionUcc1NonRA9.cshtml" />
+    <Content Include="Views\Shared\AddendumSection\_EditAddendumSectionUcc1RA9.cshtml" />
+    <Content Include="Views\Shared\AddendumSection\_EditAddendumSectionUcc3RA9.cshtml" />
+    <Content Include="Views\Shared\MiscellaneousSection\_EditMiscellaneousSectionUcc1.cshtml" />
+    <Content Include="Views\Shared\MiscellaneousSection\_EditMiscellaneousSectionUcc3.cshtml" />
+    <Content Include="Views\Shared\MiscellaneousSection\_EditMiscUcc1NonRA9.cshtml" />
+    <Content Include="Views\Shared\MiscellaneousSection\_EditMiscUcc1NonRA9misctype.cshtml" />
+    <Content Include="Views\Shared\MiscellaneousSection\_EditMiscUcc1RA9.cshtml" />
+    <Content Include="Views\Shared\MiscellaneousSection\_EditMiscUcc3NonRA9.cshtml" />
+    <Content Include="Views\Shared\MiscellaneousSection\_EditMiscUcc3RA9.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Addendumfinancingstmt.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\FinancingStatement.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\financingstatementUcc3.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Miscellaneous.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Addendum\" />
-    <Folder Include="Models\Miscellaneous\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

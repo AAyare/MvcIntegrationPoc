@@ -40,13 +40,14 @@ namespace MvcPoc.Web.Models.Miscellaneous
             Yes = 0,
             No = 1
         }
+        
         [Display(Name = "Optional Filer Ref")]
         public string OptionalFileReference
         {
             get { return _optionalFileReference; }
             set { _optionalFileReference = value; }
         }
-
+         [DataType(DataType.MultilineText)]
         public string OptionalFileReferencetextarea
         {
             get { return _optionalFileReferencetextarea; }
@@ -59,17 +60,17 @@ namespace MvcPoc.Web.Models.Miscellaneous
         public enum Miscellaneous
         {
             None = 0,
-            [Display(Name = "Lessee/Lessor")]
+            [Description("Lessee/Lessor")]
             Lessee_Lessor = 1,
-            [Display(Name = "Consignee/Consignor")]
+            [Description("Consignee/Consignor")]
             Consignee_Consignor = 2,
-            [Display(Name = "Bailee/Bailor")]
+            [Description("Bailee/Bailor")]
             Bailee_Bailor = 3,
-            [Display(Name = "Seller/Buyer")]
+            [Description("Seller/Buyer")]
             Seller_Buyer = 4,
-            [Display(Name = "AG Lien")]
+            [Description("AG Lien")]
             AG_Lien = 5,
-            [Display(Name = "Non-UCC Filing")]
+            [Description("Non-UCC Filing")]
             Non_UCC_Filing = 6
         }
 
@@ -80,11 +81,11 @@ namespace MvcPoc.Web.Models.Miscellaneous
         public enum AlternateFilingType
         {
             None = 0,
-            [Display(Name = "Public-Finance Transaction")]
+            [Description("Public-Finance Transaction")]
             Public_Finance_Transaction = 1,
-            [Display(Name = "Manufactured-Home Transaction")]
+            [Description("Manufactured-Home Transaction")]
             Manufactured_Home_Transaction = 2,
-            [Display(Name = "A Debtor is a Transmitting Utility")]
+            [Description("A Debtor is a Transmitting Utility")]
             A_Debtor_is_a_Transmitting_Utility = 3           
         }
         public Alternate alternate
@@ -93,9 +94,9 @@ namespace MvcPoc.Web.Models.Miscellaneous
         public enum Alternate
         {
             None = 0,
-            [Display(Name = "Agricultural Lien")]
+            [Description("Agricultural Lien")]
             Agricultural_Lien = 1,
-            [Display(Name = "Non-UCC Filing")]
+            [Description("Non-UCC Filing")]
             Non_UCC_Filing = 2
         }
         [Display(Name = "Alternative Designation")]
@@ -104,15 +105,15 @@ namespace MvcPoc.Web.Models.Miscellaneous
 
         public enum AlternativeDesignation
         {
-            [Display(Name = "Lessee/Lessor")]
+            [Description("Lessee/Lessor")]
             Lessee_Lessor = 0,
-            [Display(Name = "Consignee/Consignor")]
+            [Description("Consignee/Consignor")]
             Consignee_Consignor = 1,
-            [Display(Name = "Bailee/Bailor")]
+            [Description("Bailee/Bailor")]
             Bailee_Bailor = 2,
-            [Display(Name = "Seller/Buyer")]
+            [Description("Seller/Buyer")]
             Seller_Buyer = 3,
-            [Display(Name = "Licensee/Licensor")]
+            [Description("Licensee/Licensor")]
             Licensee_Licensor = 4
         }
 

@@ -3,14 +3,16 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
+using MvcPoc.Web.Utils.CustomAttributes;
 
 namespace MvcPoc.Web.Models.Debtor
 {
     public class Ucc1DebtorModel
     {
-        public Ucc1DebtorModel(string stateCode)
+        public Ucc1DebtorModel(string stateCode, string filingtype)
         {
             StateCode = stateCode;
+            FilingType = filingtype;
         }
 
         private int _id;
@@ -21,6 +23,7 @@ namespace MvcPoc.Web.Models.Debtor
         private string _lastName;
         private string _seeInstructions;
         private string _stateCode;
+        private string _filingtype;
         private bool _isRemoved;
         private bool _canHideRemoveDebtor;
         private readonly List<DebtorFavorite> _debtorFavorites = new List<DebtorFavorite>
@@ -141,6 +144,12 @@ namespace MvcPoc.Web.Models.Debtor
         {
             get { return _canHideRemoveDebtor; }
             set { _canHideRemoveDebtor = value; }
+        }
+
+        public string FilingType
+        {
+            get { return _filingtype; }
+            private set { _filingtype = value; }
         }
     }
 }
