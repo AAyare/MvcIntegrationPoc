@@ -37,6 +37,11 @@
         <input type="submit" value="Add Additional Secured Party" name="action" class="cancel" />
         
         @{ Html.RenderAction("RenderCollateralSection", new {statecode = Model.StateCode});}
+        
+        @if (Model.ShowFloridaSection)
+        {
+            Html.RenderAction("RenderFloridaSection");
+        }
     </fieldset>
     
     <p>

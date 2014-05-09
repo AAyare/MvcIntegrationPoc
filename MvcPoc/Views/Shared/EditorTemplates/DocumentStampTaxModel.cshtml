@@ -1,0 +1,21 @@
+﻿@using MvcPoc.Web.Utils.HtmlExtensions
+@model MvcPoc.Web.Models.StateSpecific.FL.DocumentStampTaxModel
+
+<div class="partial-sections">
+    <div class="partial-section" id="collateral-1">
+        <div class="section-header">
+            <h6>Florida Documentary Stamp Tax</h6>
+            <fieldset>
+                <legend>Florida Documentary Stamp Tax</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.StampTaxType)
+                </div>
+                <div class="editor-field">
+                    @Html.RadioButtonForEnum(model => model.StampTaxType)
+                    @Html.ValidationMessageFor(model => model.StampTaxType)
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>

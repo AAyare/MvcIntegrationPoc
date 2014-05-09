@@ -219,6 +219,10 @@
     <Compile Include="Models\SecuredParty\Ucc1SecuredPartyModel.cs" />
     <Compile Include="Models\SecuredParty\Ucc1SecuredPartySectionModel.cs" />
     <Compile Include="Models\SecuredParty\Ucc3SecuredPartyModel.cs" />
+    <Compile Include="Models\StateSpecific\FL\DocumentaryStampTaxCalculationModel.cs" />
+    <Compile Include="Models\StateSpecific\FL\DocumentStampTaxModel.cs" />
+    <Compile Include="Models\StateSpecific\FL\DocumentStampTaxType.cs" />
+    <Compile Include="Models\StateSpecific\FL\FloridaSectionModel.cs" />
     <Compile Include="Models\Ucc1Model.cs" />
     <Compile Include="Models\Ucc3Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -358,6 +362,9 @@
     <Content Include="Views\Shared\SecuredPartySection\_SecuredPartySection.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Ucc1SecuredPartyModel.cshtml" />
     <Content Include="Views\Shared\CollateralSection\_Collateral.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DocumentStampTaxModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DocumentaryStampTaxCalculationModel.cshtml" />
+    <Content Include="Views\Shared\StateSpecific\_FloridaSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

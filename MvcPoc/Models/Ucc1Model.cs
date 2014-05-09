@@ -10,6 +10,11 @@ namespace MvcPoc.Web.Models
             StateCode = stateCode;
         }
 
+        public bool ShowFloridaSection
+        {
+            get { return StateCode.ToLower().Equals("fl") || StateCode.ToLower().Equals("florida"); }
+        }
+
         public string StateCode { get; private set; }
 
         public Ucc1DebtorModel[] Ucc1Debtors { get; set; }

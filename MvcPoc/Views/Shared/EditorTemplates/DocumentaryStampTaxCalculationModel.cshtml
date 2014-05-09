@@ -1,0 +1,53 @@
+﻿@model MvcPoc.Web.Models.StateSpecific.FL.DocumentaryStampTaxCalculationModel
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#DocumentaryStampTaxCalculation_IndebtednessAmountOfCollateral').keypress(function() {
+            var amount = $('#DocumentaryStampTaxCalculation_IndebtednessAmountOfCollateral').val();
+            var taxAmount = (amount * 0.35)/10;
+            $('#DocumentaryStampTaxCalculation_TotalTaxAmountDue').val('$' + taxAmount);
+        });
+    });
+</script>
+
+<div class="partial-sections">
+    <div class="partial-section" id="collateral-1">
+        <div class="section-header">
+            <h6>Florida Documentary Stamp Tax Calculation</h6>
+            <fieldset>
+                <legend>Florida Documentary Stamp Tax Calculation</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.IndebtednessAmountOfCollateral)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.IndebtednessAmountOfCollateral)
+                    @Html.ValidationMessageFor(model => model.IndebtednessAmountOfCollateral)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.TaxRate)
+                </div>
+                <div class="editor-field">
+                    @Html.DisplayFor(model => model.TaxRate)
+                    @Html.ValidationMessageFor(model => model.TaxRate)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.TotalTaxAmountDue)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TotalTaxAmountDue)
+                    @Html.ValidationMessageFor(model => model.TotalTaxAmountDue)
+                </div>
+
+                <div class="editor-label">
+                </div>
+                <div class="editor-field">
+                    For questions regarding Documentary Stamp Tax <a href="https://revenuelaw.state.fl.us/pages/home.aspx" target="_blank">Click here</a>
+                </div>
+
+            </fieldset>
+        </div>
+    </div>
+</div>

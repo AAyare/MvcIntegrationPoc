@@ -5,6 +5,7 @@ using MvcPoc.Web.Models;
 using MvcPoc.Web.Models.Collateral;
 using MvcPoc.Web.Models.Debtor;
 using MvcPoc.Web.Models.SecuredParty;
+using MvcPoc.Web.Models.StateSpecific.FL;
 using MvcPoc.Web.Utils.CustomActionNames;
 
 namespace MvcPoc.Web.Controllers
@@ -80,6 +81,14 @@ namespace MvcPoc.Web.Controllers
         {
             var collateralModel = new Ucc1CollateralModel();
             return PartialView("CollateralSection/_Collateral", collateralModel);
+        }
+
+        public ActionResult RenderFloridaSection()
+        {
+            var floridaSectionModel = new FloridaSectionModel();
+            floridaSectionModel.DocumentStampTax = new DocumentStampTaxModel();
+            floridaSectionModel.DocumentaryStampTaxCalculation = new DocumentaryStampTaxCalculationModel();
+            return PartialView("StateSpecific/_FloridaSection", floridaSectionModel);
         }
     }
 }
