@@ -85,7 +85,7 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderMiscellaneous(string state, string FilingType)
         {
-            if (FilingType == "Ucc1")
+            if (FilingType.ToLower().Equals("ucc1"))
             {
                 var miscellaneous = new Ucc1MiscellaneousModel(state, FilingType);
                 return PartialView("MiscellaneousSection/_EditMiscellaneousSectionUcc1", miscellaneous);
@@ -100,7 +100,7 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderMiscellaneousUcc1NonRA9(string state, string FilingType)
         {
-            if (state == "AZ" && FilingType == "Ucc1")
+            if (state.ToLower().Equals("az") && FilingType.ToLower().Equals("ucc1"))
             {
                 var miscellaneous = new Ucc1MiscellaneousModel(state, FilingType);
                 return PartialView("MiscellaneousSection/_EditMiscUcc1NonRA9", miscellaneous);
@@ -115,7 +115,7 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderMiscellaneousUcc1NonRA9misctype(string state, string FilingType)
         {
-            if (state == "AZ" && FilingType == "Ucc1")
+            if (state.ToLower().Equals("az") && FilingType.ToLower().Equals("ucc1"))
             {
                 var miscellaneous = new Ucc1MiscellaneousModel(state, FilingType);
                 return PartialView("MiscellaneousSection/_EditMiscUcc1NonRA9misctype", miscellaneous);
@@ -129,7 +129,7 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderMiscellaneousUcc1RA9(string state, string FilingType)
         {
-            if (state == "SD" && FilingType == "Ucc1")
+            if (state.ToLower().Equals("sd") && FilingType.ToLower().Equals("ucc1"))
             {
                 var miscellaneous = new Ucc1MiscellaneousModel(state, FilingType);
                 return PartialView("MiscellaneousSection/_EditMiscUcc1RA9", miscellaneous);
@@ -143,7 +143,7 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderMiscellaneousUcc3(string state, string FilingType)
         {
-            if (FilingType == "Ucc3")
+            if (FilingType.ToLower().Equals("ucc3"))
             {
                 var miscellaneous = new Ucc3MiscellaneousModel(state, FilingType);
                 return PartialView("MiscellaneousSection/_EditMiscellaneousSectionUcc3", miscellaneous);
@@ -157,7 +157,7 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderMiscellaneousUcc3RA9(string state, string FilingType)
         {
-            if (FilingType == "Ucc3")
+            if (FilingType.ToLower().Equals("ucc3"))
             {
                 var miscellaneous = new Ucc3MiscellaneousModel(state, FilingType);
                 return PartialView("MiscellaneousSection/_EditMiscUcc3RA9", miscellaneous);
@@ -171,7 +171,7 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderMiscellaneousUcc3NonRA9(string state, string FilingType)
         {
-            if (state == "AZ" && FilingType == "Ucc3")
+            if (state.ToLower().Equals("az") && FilingType.ToLower().Equals("ucc3"))
             {
                 var miscellaneous = new Ucc3MiscellaneousModel(state, FilingType);
                 return PartialView("MiscellaneousSection/_EditMiscUcc3NonRA9", miscellaneous);
@@ -185,14 +185,14 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderAddendumUcc1(string state, string FilingType)
         {
-            if (FilingType == "Ucc1")
+            if (FilingType.ToLower().Equals("ucc1"))
             {
-                if (state == "SD")
+                if (state.ToLower().Equals("sd"))
                 {
                     var addendum = new Ucc1AddendumModel(state, FilingType);
                     return PartialView("AddendumSection/_EditAddendumSectionUcc1RA9", addendum);
                 }
-                else if (state == "AZ")
+                else if (state.ToLower().Equals("az"))
                 {
                     var addendum = new Ucc1AddendumModel(state, FilingType);
                     return PartialView("AddendumSection/_EditAddendumSectionUcc1NonRA9", addendum);
@@ -211,7 +211,7 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderAddendumUcc3RA9(string state, string FilingType)
         {
-            if (FilingType == "Ucc3" && state == "SD")
+            if (FilingType.ToLower().Equals("ucc3") && state.ToLower().Equals("sd"))
             {
                 var addendum = new Ucc3AddendumModel(state, FilingType);
                 return PartialView("AddendumSection/_EditAddendumSectionUcc3RA9", addendum);
