@@ -140,7 +140,7 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderMiscellaneousUcc1RA9(string state, string FilingType)
         {
-            if (state.ToLower().Equals("sd") && FilingType.ToLower().Equals("ucc1"))
+            if (!state.ToLower().Equals("az") && FilingType.ToLower().Equals("ucc1"))
             {
                 var miscellaneous = new Ucc1MiscellaneousModel(state, FilingType);
                 return PartialView("MiscellaneousSection/_EditMiscUcc1RA9", miscellaneous);
@@ -198,7 +198,7 @@ namespace MvcPoc.Web.Controllers
         {
             if (FilingType.ToLower().Equals("ucc1"))
             {
-                if (state.ToLower().Equals("sd"))
+                if (!state.ToLower().Equals("az"))
                 {
                     var addendum = new Ucc1AddendumModel(state, FilingType);
                     return PartialView("AddendumSection/_EditAddendumSectionUcc1RA9", addendum);
@@ -222,7 +222,7 @@ namespace MvcPoc.Web.Controllers
         [ChildActionOnly]
         public ActionResult RenderAddendumUcc3RA9(string state, string FilingType)
         {
-            if (FilingType.ToLower().Equals("ucc3") && state.ToLower().Equals("sd"))
+            if (FilingType.ToLower().Equals("ucc3") && !state.ToLower().Equals("az"))
             {
                 var addendum = new Ucc3AddendumModel(state, FilingType);
                 return PartialView("AddendumSection/_EditAddendumSectionUcc3RA9", addendum);
