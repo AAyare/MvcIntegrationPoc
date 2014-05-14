@@ -151,5 +151,7 @@ namespace MvcPoc.Web.Models.Debtor
             get { return _filingtype; }
             private set { _filingtype = value; }
         }
+
+        public int Index { get; set; }
     }
 }

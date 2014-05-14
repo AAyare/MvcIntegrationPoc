@@ -24,6 +24,7 @@ namespace MvcPoc.Web.Models
         public string StateCode { get; private set; }
         public string FilingType { get; private set; }
 
+        public Ucc1DebtorSectionModel DebtorSection { get; set; }
         public Ucc1DebtorModel[] Ucc1Debtors { get; set; }
         public Ucc1SecuredPartySectionModel Ucc1SecuredPartySection { get; set; }
         public Ucc1CollateralModel Ucc1Collateral { get; set; }

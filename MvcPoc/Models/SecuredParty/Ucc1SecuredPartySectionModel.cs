@@ -10,6 +10,7 @@ namespace MvcPoc.Web.Models.SecuredParty
 	    private string _stateCode;
 	    private List<Ucc1SecuredPartyModel> _securedPartySet;
 
+        public Ucc1SecuredPartySectionModel(){}
         public Ucc1SecuredPartySectionModel(string stateCode)
         {
             _stateCode = stateCode;
@@ -17,7 +18,7 @@ namespace MvcPoc.Web.Models.SecuredParty
         }
 
         public string StateCode{get { return _stateCode; }}
-        public List<Ucc1SecuredPartyModel> SecuredpartySet { get { return _securedPartySet; } }
+        public List<Ucc1SecuredPartyModel> SecuredPartySet { get { return _securedPartySet; } }
 
 	    public void AddSecuredPartyToSet(Ucc1SecuredPartyModel ucc1SecuredPartyModel)
 	    {

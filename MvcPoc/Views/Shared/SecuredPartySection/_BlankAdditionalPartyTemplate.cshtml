@@ -1,5 +1,6 @@
-﻿@using MvcPoc.Web.Utils.HtmlExtensions
-@model MvcPoc.Web.Models.SecuredParty.Ucc1SecuredPartyModel
+﻿@using MvcPoc.Web.Models.SecuredParty
+@using MvcPoc.Web.Utils.HtmlExtensions
+@model Ucc1SecuredPartyModel
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -55,7 +56,7 @@
                 @Html.LabelFor(model => model.OrganizationName)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.OrganizationName)
+                @Html.IndexBasedEditorFor(model => model.OrganizationName, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
                 @Html.ValidationMessageFor(model => model.OrganizationName)
             </div>
 
@@ -63,7 +64,7 @@
                 @Html.LabelFor(model => model.FirstName)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.FirstName)
+                @Html.IndexBasedEditorFor(model => model.FirstName, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
                 @Html.ValidationMessageFor(model => model.FirstName)
             </div>
 
@@ -71,7 +72,7 @@
                 @Html.LabelFor(model => model.MiddleName)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.MiddleName)
+                @Html.IndexBasedEditorFor(model => model.MiddleName, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
                 @Html.ValidationMessageFor(model => model.MiddleName)
             </div>
 
@@ -79,7 +80,7 @@
                 @Html.LabelFor(model => model.LastName)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.LastName)
+                @Html.IndexBasedEditorFor(model => model.LastName, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
                 @Html.ValidationMessageFor(model => model.LastName)
             </div>
             
@@ -87,7 +88,7 @@
                 @Html.LabelFor(model => model.Suffix)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Suffix)
+                @Html.IndexBasedEditorFor(model => model.Suffix, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
                 @Html.ValidationMessageFor(model => model.Suffix)
             </div>
 
@@ -95,7 +96,7 @@
                 @Html.LabelFor(model => model.MailingAddress)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.MailingAddress)
+                @Html.IndexBasedEditorFor(model => model.MailingAddress, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
                 @Html.ValidationMessageFor(model => model.MailingAddress)
             </div>
 
@@ -103,7 +104,7 @@
                 @Html.LabelFor(model => model.City)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.City)
+                @Html.IndexBasedEditorFor(model => model.City, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
                 @Html.ValidationMessageFor(model => model.City)
             </div>
 
@@ -111,7 +112,7 @@
                 @Html.LabelFor(model => model.StateCode)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.StateCode)
+                @Html.IndexBasedEditorFor(model => model.StateCode, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
                 @Html.ValidationMessageFor(model => model.StateCode)
             </div>
 
@@ -119,7 +120,7 @@
                 @Html.LabelFor(model => model.PostalCode)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.PostalCode)
+                @Html.IndexBasedEditorFor(model => model.PostalCode, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
                 @Html.ValidationMessageFor(model => model.PostalCode)
             </div>
 
@@ -127,12 +128,12 @@
                 @Html.LabelFor(model => model.Country)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Country)
+                @Html.IndexBasedEditorFor(model => model.Country, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
                 @Html.ValidationMessageFor(model => model.Country)
             </div>
 
-            @Html.HiddenFor(model => model.CanShowRemoveParty)
-            @Html.HiddenFor(model => model.IsRemoved)
+            @Html.IndexBasedHiddenFor(model => model.CanShowRemoveParty, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
+            @Html.IndexBasedHiddenFor(model => model.IsRemoved, typeof(Ucc1SecuredPartySectionModel), Model.CurrentIndex, "SecuredPartySet")
             @if (Model.CanShowRemoveParty)
             {
                 <div class="editor-label">
@@ -145,5 +146,5 @@
         </fieldset>
     </div>
 </div>
-    </div>
+</div>
 <br/>

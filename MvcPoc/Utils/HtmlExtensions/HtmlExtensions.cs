@@ -41,5 +41,59 @@ namespace MvcPoc.Web.Utils.HtmlExtensions
             }
             return MvcHtmlString.Create(sb.ToString());
         }
+
+        public static MvcHtmlString IndexBasedEditorFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper,
+                Expression<Func<TModel, TProperty>> expression, Type ParentType, int indexToCreateElementAt,
+                string collectionPropertyName)
+        {
+            var metaData = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
+            var collectionObject = ParentType.GetProperties().First(p => p.Name.Equals(collectionPropertyName));
+            
+            if(!collectionObject.PropertyType.IsGenericType && collectionObject.PropertyType.GetGenericTypeDefinition() != typeof(IEnumerable<>))
+                throw new ArgumentException(string.Format("Parent Object does not contain a Generic Type property with name: {0}", collectionPropertyName));
+
+            htmlHelper.ViewData.TemplateInfo.HtmlFieldPrefix = string.Format("{0}[{1}]", collectionObject.Name, indexToCreateElementAt);
+            var id = string.Format("{0}__{2}",
+                                   htmlHelper.ViewData.TemplateInfo.HtmlFieldPrefix,
+                                   indexToCreateElementAt, 
+                                   metaData.PropertyName
+                );
+
+            var name = string.Format("{0}[{1}].{2}",
+                                   collectionObject.Name,
+                                   indexToCreateElementAt, 
+                                   metaData.PropertyName
+                );
+
+            var htmlElement = htmlHelper.EditorFor(expression, name, new {id = @id}).ToHtmlString();
+            return MvcHtmlString.Create(htmlElement);
+        }
+
+        public static MvcHtmlString IndexBasedHiddenFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper,
+                Expression<Func<TModel, TProperty>> expression, Type ParentType, int indexToCreateElementAt,
+                string collectionPropertyName)
+        {
+            var metaData = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
+            var collectionObject = ParentType.GetProperties().First(p => p.Name.Equals(collectionPropertyName));
+            
+            if(!collectionObject.PropertyType.IsGenericType && collectionObject.PropertyType.GetGenericTypeDefinition() != typeof(IEnumerable<>))
+                throw new ArgumentException(string.Format("Parent Object does not contain a Generic Type property with name: {0}", collectionPropertyName));
+
+            htmlHelper.ViewData.TemplateInfo.HtmlFieldPrefix = string.Format("{0}[{1}]", collectionObject.Name, indexToCreateElementAt);
+            var id = string.Format("{0}__{2}",
+                                   htmlHelper.ViewData.TemplateInfo.HtmlFieldPrefix,
+                                   indexToCreateElementAt, 
+                                   metaData.PropertyName
+                );
+
+            var name = string.Format("{0}[{1}].{2}",
+                                   collectionObject.Name,
+                                   indexToCreateElementAt, 
+                                   metaData.PropertyName
+                );
+
+            var htmlElement = htmlHelper.HiddenFor(expression, new {id = @id}).ToHtmlString();
+            return MvcHtmlString.Create(htmlElement);
+        }
 	}
 }

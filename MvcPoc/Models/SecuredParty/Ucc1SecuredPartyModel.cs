@@ -7,6 +7,7 @@ namespace MvcPoc.Web.Models.SecuredParty
 {
     public class Ucc1SecuredPartyModel
     {
+        public int CurrentIndex { get; set; }
         private int _id;
         public int Id
         {

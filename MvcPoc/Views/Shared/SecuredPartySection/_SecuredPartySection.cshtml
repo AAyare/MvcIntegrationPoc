@@ -1,3 +1,9 @@
 ﻿@model MvcPoc.Web.Models.SecuredParty.Ucc1SecuredPartySectionModel
 
-@Html.EditorFor(model => model.SecuredpartySet)
+<div id="secured-party-rows">
+    
+    @Html.EditorFor(model => model.SecuredPartySet)
+    
+</div>
+
+<input type="button" id="add-additional-secured-party" value="Add Additional Secured Party" name="Add Additional Secured Party" />

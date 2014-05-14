@@ -7,21 +7,14 @@ namespace MvcPoc.Web.Models.Debtor
     public class Ucc1DebtorSectionModel
     {
 
-        public Ucc1DebtorSectionModel(string stateCode, List<Ucc1DebtorModel> debtors)
+        public Ucc1DebtorSectionModel()
         {
-            _stateCode = stateCode;
-            _debtors = debtors;
+            _debtors = new List<Ucc1DebtorModel>();
         }
 
         private string _stateCode;
         private string _account;
         private List<Ucc1DebtorModel> _debtors;
-
-        public string Account
-        {
-            get { return _account; }
-            set { _account = value; }
-        }
 
         public List<Ucc1DebtorModel> Debtors
         {
@@ -32,7 +25,7 @@ namespace MvcPoc.Web.Models.Debtor
         public string StateCode
         {
             get { return _stateCode; }
-            private set { _stateCode = value; }
+            set { _stateCode = value; }
         }
     }
 }

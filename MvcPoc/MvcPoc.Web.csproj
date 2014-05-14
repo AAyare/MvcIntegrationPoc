@@ -367,7 +367,8 @@
     <Content Include="Views\Shared\EditorTemplates\Ucc1SecuredPartyModel.cshtml" />
     <Content Include="Views\Shared\CollateralSection\_Collateral.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DocumentaryStampTaxCalculationModel.cshtml" />
-    <Content Include="Views\Shared\StateSpecific\_FloridaSection.cshtml" />    <Content Include="Views\CpFiling\Ucc3.cshtml" />
+    <Content Include="Views\Shared\StateSpecific\_FloridaSection.cshtml" />
+    <Content Include="Views\CpFiling\Ucc3.cshtml" />
     <Content Include="Views\Shared\AddendumSection\_EditAddendumSectionUcc1NonRA9.cshtml" />
     <Content Include="Views\Shared\AddendumSection\_EditAddendumSectionUcc1RA9.cshtml" />
     <Content Include="Views\Shared\AddendumSection\_EditAddendumSectionUcc3RA9.cshtml" />
@@ -382,6 +383,8 @@
     <Content Include="Views\Shared\EditorTemplates\FinancingStatement.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\financingstatementUcc3.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Miscellaneous.cshtml" />
+    <Content Include="Views\Shared\DebtorSection\_BlankAdditionalDebtorTemplate.cshtml" />
+    <Content Include="Views\Shared\SecuredPartySection\_BlankAdditionalPartyTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

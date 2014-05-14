@@ -20,6 +20,7 @@ namespace MvcPoc.Web.Controllers
         {
             return View(ucc1);
         }
+/*
 
         public ActionResult Ucc1(Page1Model model)
         {
@@ -28,8 +29,73 @@ namespace MvcPoc.Web.Controllers
                                          {
                                              new Ucc1DebtorModel(model.JurisdictionStateCode, model.UccType) {Id=0}
                                          }.ToArray();
-
+            var securedPartySection = new Ucc1SecuredPartySectionModel(model.JurisdictionStateCode);
+            securedPartySection.AddSecuredPartyToSet(new Ucc1SecuredPartyModel
+                                {
+                                    CanShowRemoveParty = false
+                                });
+            securedPartySection.AddSecuredPartyToSet(new Ucc1SecuredPartyModel
+                                {
+                                    CanShowRemoveParty = true
+                                });
+            ucc1Model.Ucc1SecuredPartySection = securedPartySection;
             return View(ucc1Model);
+        }
+*/
+
+        public ActionResult Ucc1(Page1Model model)
+        {
+            var ucc1Model = new Ucc1Model(model.JurisdictionStateCode, model.UccType);
+            ucc1Model.DebtorSection = new Ucc1DebtorSectionModel
+                {
+                    Debtors = new List<Ucc1DebtorModel>
+                        {
+                            new Ucc1DebtorModel(model.JurisdictionStateCode, model.UccType)
+                                {
+                                    CanShowRemoveDebtor = false
+                                },
+
+                            new Ucc1DebtorModel(model.JurisdictionStateCode, model.UccType)
+                                {
+                                    CanShowRemoveDebtor = true
+                                }
+                        }
+                };
+            ucc1Model.Ucc1SecuredPartySection = new Ucc1SecuredPartySectionModel(model.JurisdictionStateCode);
+            ucc1Model.Ucc1SecuredPartySection.AddSecuredPartyToSet(new Ucc1SecuredPartyModel
+                {
+                    CanShowRemoveParty = false
+                });
+            ucc1Model.Ucc1SecuredPartySection.AddSecuredPartyToSet(new Ucc1SecuredPartyModel
+                {
+                    CanShowRemoveParty = true
+                });
+            ucc1Model.FloridaSection = new FloridaSectionModel();
+            ucc1Model.Ucc1Collateral = new Ucc1CollateralModel();
+            ucc1Model.Ucc1Addendum = new Ucc1AddendumModel(model.JurisdictionStateCode, model.UccType);
+            ucc1Model.Ucc1Miscellaneous = new Ucc1MiscellaneousModel(model.JurisdictionStateCode, model.UccType);
+            return View(ucc1Model);
+        }
+
+        public PartialViewResult BlankDebtorEditorRow(int currentIndex, string stateCode, string uccType)
+        {
+            var additionalDebtor = new Ucc1DebtorModel(stateCode, uccType)
+                {
+                    CanShowRemoveDebtor = true,
+                    Index = currentIndex
+                };
+            return PartialView("DebtorSection/_BlankAdditionalDebtorTemplate", additionalDebtor);
+        }
+
+        public PartialViewResult BlankPartyEditorRow(int currentIndex, string stateCode, string uccType)
+        {
+            var additionalParty = new Ucc1SecuredPartyModel()
+                {
+                    CanShowRemoveParty = true,
+                    CurrentIndex = currentIndex,
+                    StateCode = stateCode
+                };
+            return PartialView("SecuredPartySection/_BlankAdditionalPartyTemplate", additionalParty);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]

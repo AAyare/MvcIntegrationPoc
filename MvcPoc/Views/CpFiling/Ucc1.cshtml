@@ -9,6 +9,30 @@
 @section scripts
 {
     <script type="text/javascript" src="@Url.Content("~/Scripts/Ucc1.js")"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#add-additional-debtor').click(function () {
+                var currentIndex = $('.debtor-row').length;
+                $.ajax({
+                    url: 'blankdebtoreditorrow/?currentIndex=' + currentIndex + '&stateCode=@Model.StateCode&uccType=@Model.FilingType',
+                    cache: false,
+                    success: function (html) { $('#debtor-rows').append(html); }
+                });
+                return false;
+            });
+            
+            $('#add-additional-secured-party').click(function () {
+                var currentIndex = $('.secured-party-row').length;
+                $.ajax({
+                    url: 'blankpartyeditorrow/?currentIndex=' + currentIndex + '&stateCode=@Model.StateCode&uccType=@Model.FilingType',
+                    cache: false,
+                    success: function (html) { $('#secured-party-rows').append(html); }
+                });
+                return false;
+            });
+        });
+    </script>
 }
 
 @using (Html.BeginForm("Action", "CpFiling"))
@@ -29,24 +53,34 @@
             <div>@Html.HiddenFor(m => m.FilingType)</div>
 
         </div>
+        
+        <div id="debtor-section">
+            
+            @{ Html.RenderPartial("DebtorSection/_DebtorSection", Model.DebtorSection); }
 
-        @Html.EditorFor(modelitem => Model.Ucc1Debtors)
-        
-        <input type="submit" value="Add Additional Debtor" name="AddDebtor" class="cancel" />
+        </div>
 
-        @{ Html.RenderAction("RenderSecuredPartySection", new {statecode = Model.StateCode});}
+        <div id="secured-party-section">
+            
+            @{ Html.RenderPartial("SecuredPartySection/_SecuredPartySection", Model.Ucc1SecuredPartySection); }
+
+        </div>
         
-        <input type="submit" value="Add Additional Secured Party" name="action" class="cancel" />
-        
-        @{ Html.RenderAction("RenderCollateralSection", new {statecode = Model.StateCode});}
+        <div id="collateral-section">
+            
+            @{ Html.RenderAction("RenderCollateralSection", new {statecode = Model.StateCode});}
+
+        </div>
 
         @if (Model.ShowFloridaSection)
         {
-            Html.RenderAction("RenderFloridaSection");
+            <div id="florida-section">
+                @{ Html.RenderAction("RenderFloridaSection"); }
+            </div>
         }
 
 
-@Html.Action("RenderMiscellaneous", new {state = Model.StateCode, Filingtype = Model.FilingType})    
+        @Html.Action("RenderMiscellaneous", new {state = Model.StateCode, Filingtype = Model.FilingType})    
            
         @Html.Action("RenderAddendumUcc1", new {state = Model.StateCode, Filingtype = Model.FilingType})
 
